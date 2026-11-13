@@ -283,6 +283,15 @@
       "kind": "find",
       "match": "Warmboot_Extractor.bin",
       "dest": "bootloader/payloads/Warmboot_Extractor.bin"
+    },
+    {
+      "id": "n_xplorer",
+      "repo": "Craftyawesome/N-Xplorer",
+      "tag": "0.7.1-crash-fix",
+      "asset": "N-Xplorer.nro",
+      "kind": "file",
+      "dest": "switch/N-Xplorer.nro",
+      "note": "only public tagged release; rumla notes newer 2025.11.15; hash will be checked"
     }
   ]
 }
