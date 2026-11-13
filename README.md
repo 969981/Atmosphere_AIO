@@ -1,6 +1,6 @@
 # Atmosphere AIO — upstream-tracked builds
 
-This repository tracks four independent Nintendo Switch CFW bundle builders in separate branches:
+This repository tracks four automated Nintendo Switch CFW bundle builders plus one verified mirror of a manually assembled stable bundle, in separate branches:
 
 | Branch | Upstream | Build |
 | --- | --- | --- |
@@ -8,6 +8,7 @@ This repository tracks four independent Nintendo Switch CFW bundle builders in s
 | [`upstream/atmosphere-for-switch`](../../tree/upstream/atmosphere-for-switch) | [gzk47/Atmosphere-for-Switch](https://github.com/gzk47/Atmosphere-for-Switch) | SwitchSD, Pure, Tesla, Horizon-OC |
 | [`upstream/ascent`](../../tree/upstream/ascent) | [exploitz86/Ascent](https://github.com/exploitz86/Ascent) | Ascent variants |
 | [`upstream/vanillatmosphere`](../../tree/upstream/vanillatmosphere) | [mlemiam/Vanillatmosphere](https://github.com/mlemiam/Vanillatmosphere) | artifact-syspatches |
+| [`upstream/rumla-stable`](../../tree/upstream/rumla-stable) | [rumla3434/Atmosphere-Stable](https://github.com/rumla3434/Atmosphere-Stable) | **Original manually packaged .7z mirror** |
 
 ## How it works
 
@@ -22,3 +23,7 @@ This repository tracks four independent Nintendo Switch CFW bundle builders in s
 Use [Actions](../../actions/workflows/sync-build.yml) to run the schedule manually (`target=all` or one target). GitHub may delay scheduled events, or pause them on inactive repositories.
 
 This is an independent automation mirror, not an official release of any upstream project. Review upstream license and component redistribution requirements before redistributing output.
+
+## Rumla Stable manual package tracking
+
+[Dedicated GitHub Actions workflow](../../actions/workflows/rumla-stable.yml) checks the upstream release archive SHA256 every six hours (at :29 UTC), not just its release tag. If the author replaces an archive under an unchanged tag, it creates a **new digest-scoped mirror Release** with the original unchanged .7z, SHA256SUMS, source provenance and a 7z file-layout audit. This does not claim to reproduce the author's unpublished SD-card assembly recipe. The primary four-builder workflow remains unchanged.
