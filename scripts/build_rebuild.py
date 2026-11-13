@@ -216,6 +216,13 @@ def main():
         finally:
             print("::endgroup::",flush=True)
     configs = apply_configs()
+    # The original emuMMC example layouts contain two empty sentinel files.
+    # Recreate them directly; no upstream binary or private data is needed.
+    for marker in (
+        "atmosphere/config_templates/emummc-ER00/ER00/raw_based",
+        "atmosphere/config_templates/emummc-SD00/SD00/file_based",
+    ):
+        write(marker, b"", "generated-empty-emummc-sentinel")
     # The source sys-clk archive uses a subfolder, while rumla places the
     # same upstream binary at switch/sys-clk-manager.nro.
     manager = SD / "switch/sys-clk/sys-clk.nro"
