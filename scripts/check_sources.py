@@ -3,6 +3,7 @@
 import collections
 import json
 import os
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -17,8 +18,20 @@ rows=[]
 for repo,pin in unique.items():
     try:
         req=urllib.request.Request(f"https://api.github.com/repos/{repo}/releases/latest",headers=headers)
-        with urllib.request.urlopen(req,timeout=25) as resp:
-            d=json.load(resp)
+        try:
+            with urllib.request.urlopen(req,timeout=25) as resp:
+                d=json.load(resp)
+        except urllib.error.HTTPError as ex:
+            if ex.code != 404:
+                raise
+            # Some authors mark their only release as prerelease, so /latest
+            # legitimately returns 404 even though /releases has published assets.
+            url=f"https://api.github.com/repos/{repo}/releases?per_page=1"
+            with urllib.request.urlopen(urllib.request.Request(url,headers=headers),timeout=25) as resp:
+                entries=json.load(resp)
+            if not entries:
+                raise
+            d=entries[0]
         new=d["tag_name"]
         rows.append({"repository":repo,"pinned":pin,"latest":new,
                      "changed":pin!=new,"url":d["html_url"]})
