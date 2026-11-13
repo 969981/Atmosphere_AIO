@@ -1,0 +1,1395 @@
+{
+  "upstream_tag": "1.12.2",
+  "upstream_release": "https://github.com/rumla3434/Atmosphere-Stable/releases/tag/1.12.2",
+  "original_7z_asset": "AMS1.12.2-Stable-v261112.7z",
+  "original_7z_sha256": "55a9a927b1552584c603ca4756e40fc59e1c7d20d4a7635a4acf795e89ac1338",
+  "sd_root": "大气层1.12.2整合包系统稳定版--v261112",
+  "sd_files": 277,
+  "files": [
+    {
+      "path": "atmosphere/config/override_config.ini",
+      "bytes": 190,
+      "sha256": "a8656d18b6445e46ebdea1385faf726ef083640c72a7d8d886975fedde6530d2"
+    },
+    {
+      "path": "atmosphere/config/stratosphere.ini",
+      "bytes": 28,
+      "sha256": "347d3fef08b73b0d6c47d350e6ee65831914c6891f2fa23f00897f05432da238"
+    },
+    {
+      "path": "atmosphere/config/system_settings.ini",
+      "bytes": 1462,
+      "sha256": "137feae224e93c34a02c7b761263f106202ae18aaf072610aade59fc62ce14bc"
+    },
+    {
+      "path": "atmosphere/config_templates/boot2.flag",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "atmosphere/config_templates/emummc-ER00/ER00/raw_based",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "atmosphere/config_templates/emummc-ER00/emummc.ini",
+      "bytes": 89,
+      "sha256": "ce8080e2752c84abd69c355a5777acedb139ed19890e8ecab10a131835e6f428"
+    },
+    {
+      "path": "atmosphere/config_templates/emummc-SD00/SD00/file_based",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "atmosphere/config_templates/emummc-SD00/emummc.ini",
+      "bytes": 101,
+      "sha256": "ccc871e149c1b4df769bf7a45ae24253084632b8e14ef4d09540bc6a7fa52af8"
+    },
+    {
+      "path": "atmosphere/contents/00FF0000636C6BFF/exefs.nsp",
+      "bytes": 177934,
+      "sha256": "5ef0cbbb7fe88ef2109e6c0faa6d1f82b26e5d4725b2675b6fc404a637c1f72c"
+    },
+    {
+      "path": "atmosphere/contents/00FF0000636C6BFF/toolbox.json",
+      "bytes": 85,
+      "sha256": "d98c0a49044256640031a5828a44c35e586f9f4e67eea59f55a51a51694edc1f"
+    },
+    {
+      "path": "atmosphere/contents/420000000007E51A/exefs.nsp",
+      "bytes": 24021,
+      "sha256": "46d5d8793779e5fe334b12b573acd5b26462e957833917338bc1492496849360"
+    },
+    {
+      "path": "atmosphere/contents/420000000007E51A/toolbox.json",
+      "bytes": 88,
+      "sha256": "03fb801683a3fb102815ae11155943bbf7ac79a65fc7c8ae80f91a9b4b3b7448"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/02DCD930D0A7462451E9973AB2022D697C77614B.ips",
+      "bytes": 35,
+      "sha256": "b67a1eab2da0071ea8671b9d28c2a749c21220ec296d6cb243eeb1dfcb5f3288"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/03E4EB5556B98B327D1353E8AA2C7ADF2C544470.ips",
+      "bytes": 35,
+      "sha256": "e91e0ef975dcc58d0580454fd39ead541e7e219438f03abb83f2eb3b432743e9"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/1114E9102F1EBCD1B0EAF19C927362CFCB8B5D2C.ips",
+      "bytes": 17,
+      "sha256": "d75b7238a9239a0c3de3485b8d979e960639ff6bf89738dee7e4e9d2951da5ed"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/127904316C924326084288641825FE5DC259AF6B.ips",
+      "bytes": 17,
+      "sha256": "0f37473a326d237554b151fee76c9a4c65eb980a5417f295e003a1af3494349e"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/34E95FF2929B5B767DCFD41D108AD927D2D7F5DC.ips",
+      "bytes": 35,
+      "sha256": "908c843355adab7f63c56f853d74187f1a82582532f3c68fe53a09fbdcd7e90e"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/39E7884F7DDEA9BE4FF9F7187898FACC466A080A.ips",
+      "bytes": 35,
+      "sha256": "32fb18dec1f69c29a05ddee63f61eb6657a69cf9c1adbc7e979c00015af9a5c9"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/3B8BF56DBEC7225D2EE666B009C42C0DC4552010.ips",
+      "bytes": 35,
+      "sha256": "02f410d5d89a3f391a84cc90269d518a77c2b2154a0205320cf15ad1563da016"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/4A258ADE9176A7F263532C2A4C30187A0B00C012.ips",
+      "bytes": 17,
+      "sha256": "b6dfb3c63fd022fe2af338ef5b7313ca1262e103d8b95bbe5005e6f74f874042"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/4FB9AFAED8A9093A3D88F6D61158B1C165F9444A.ips",
+      "bytes": 17,
+      "sha256": "4d952397bcdeae34534091ec6c29a3239140d981c4db010a7076ecb6b481b9a9"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/5AA09E1AF740A91D0F73ADFAE81A63E8AC0610D2.ips",
+      "bytes": 35,
+      "sha256": "f6191fa73571435fdacbbc8640700406e90726737296c566b27a3ff03cf7491a"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/621351EB04199CF0B7A899896C451F2FD1B7A1CE.ips",
+      "bytes": 17,
+      "sha256": "bc638f8e69efbaa166a69631fcb90823d6a78464fe10b780c6d5a9bc51800ca3"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/632246E2E62ECBD0D2CC8FD7D2AB15964CAFC462.ips",
+      "bytes": 17,
+      "sha256": "ba0d3c4c69bced71b6fe4648e760d3954cfa4a92bd04cbfb3465b26d09e31589"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/702CD302FB341300BB1D69C96C7FC66FB80BE599.ips",
+      "bytes": 17,
+      "sha256": "51fdba6fff0c7ec4df3144f632a5ac895199825a3018644859ed2e68acd2d798"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/7135C20E752183914606CCE81293F24B738C3AEF.ips",
+      "bytes": 35,
+      "sha256": "23222d0cade02ded6ca5c0d703090065262545b731224591a00da2b35d5fda69"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/76935CA6235CA150D790D4DDF09CA3488AEF50D8.ips",
+      "bytes": 35,
+      "sha256": "0b011991a812b2320a9afdc4a28ca46963c7aefb620c47571cd5aac1fe47b2db"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/897C2CF2777B3A8845640C096933ACE61DD12272.ips",
+      "bytes": 35,
+      "sha256": "4ba3e5712002562ff6ffaf84d22ff0e5d0234e1692219c6f5eefd487576e464c"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/8B2E677DE5991C87B35E84F7DDB8056F62D4582E.ips",
+      "bytes": 35,
+      "sha256": "5ece46700f91fe821f2747606ba201984cfb27c893673c142cac1267a174ee5b"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/98BB737D9780E9FE3117981A77A09FF6756DBC2E.ips",
+      "bytes": 17,
+      "sha256": "46b69dcd97a599371ee0d0e0469be7c9b711e0e254cc4fd780616d3aea60ce2a"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/9C1B205852731D054B070529D320AD9649E7796C.ips",
+      "bytes": 35,
+      "sha256": "a47d956d4812206358c6e818fd879ec0ec9cba7d96ecf930017c85a6798faa22"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/A6E7D98BD335371E1B9A96F6241EA3E83B0C36F4.ips",
+      "bytes": 35,
+      "sha256": "386e6b0fb630c4ff432cbd6e72f1ed447e6a1650a8b867d7c8cb81f173c195b1"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/A9D9379170BA2E5490DCCE747A1C7286B7E4EF3D.ips",
+      "bytes": 17,
+      "sha256": "448ec900d219e6b3a3846c6fac1a0352da95a77d506a0cf9f049203eac1cfed5"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/C0BFC6518707AC975295A0B656A051DA885A9045.ips",
+      "bytes": 35,
+      "sha256": "386e6b0fb630c4ff432cbd6e72f1ed447e6a1650a8b867d7c8cb81f173c195b1"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/C6EB162251D3E1F4D7D1B20A8B807860C987B08A.ips",
+      "bytes": 17,
+      "sha256": "448ec900d219e6b3a3846c6fac1a0352da95a77d506a0cf9f049203eac1cfed5"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/CBF2D40A2210C4EE1137F80098DB776EAC7DDCC1.ips",
+      "bytes": 35,
+      "sha256": "f52b78daade97108a4bd8bed643896cb82884fdce7f256cd8cbb156a4838e606"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/CF84DE5278AE823734DE630A098C6B1AEEF12894.ips",
+      "bytes": 17,
+      "sha256": "af254ec7eff2782ecf03b343bf93a8bc1ea020e5789f0fcdaa75a61b582772c0"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/CF8FB4F82D3E2D56720E1EDB14AB06543343E042.ips",
+      "bytes": 35,
+      "sha256": "32fb18dec1f69c29a05ddee63f61eb6657a69cf9c1adbc7e979c00015af9a5c9"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/D0ECC9483E636AE19FE3E314DB41CB18019977D7.ips",
+      "bytes": 17,
+      "sha256": "0d81472d0aee8bb250dd45f4617cd1229aa0b5ccff2626cd26467979bebac34a"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/D2D2430244D162C9FAABE8C89A58C6E3962160F1.ips",
+      "bytes": 35,
+      "sha256": "bd6d0ac131d5107d912ca4eeedc9b17fb841b034825034a5b6862141fb509aeb"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/E581B1898637E5BC40DBC4AB8F0C6324447E05D1.ips",
+      "bytes": 35,
+      "sha256": "f52b78daade97108a4bd8bed643896cb82884fdce7f256cd8cbb156a4838e606"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/F48ABC3EF41A0555800127D172C9B8D2C653243A.ips",
+      "bytes": 35,
+      "sha256": "29f3fb8613a533b6184aadd79d907d32734a5d275509db764fcaa65a6fd4c0ed"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/F65FBA401BAC3CDDEA4917DE22E8B426B3A6C3AD.ips",
+      "bytes": 35,
+      "sha256": "aaead49bb176d82dddd4022ec36724dbca163a4f280fad0eab96fcfb8facaa46"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/F86D615F9FC6F0D16C3458BE58C64594DBDAB0DF.ips",
+      "bytes": 35,
+      "sha256": "9ebe3c559ddebf4d530c398134788deddcf9b2319ac3002ab0d07b4f53bdca09"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/F92CFF283777465AFBCC6E160C10EFE7AADC4D3C.ips",
+      "bytes": 35,
+      "sha256": "9ebe3c559ddebf4d530c398134788deddcf9b2319ac3002ab0d07b4f53bdca09"
+    },
+    {
+      "path": "atmosphere/exefs_patches/es_patches/FBBDEC24489CB423E13226A8447BE27B7E7193B7.ips",
+      "bytes": 17,
+      "sha256": "0fc8e3d450d4aabd041ffc47a4a7151f5386264af3e86aafe516da8c0a369baa"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/0C4C2220D90155B139E254179D2D35244B32C9C1.ips",
+      "bytes": 21,
+      "sha256": "4ed43d8d0afbe061f81c5539e6e55051937c17db52c9e1a83c310e049770f9e8"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/184A3F5734F456D0718FA35D15D8410A9BDFC537.ips",
+      "bytes": 21,
+      "sha256": "4ed43d8d0afbe061f81c5539e6e55051937c17db52c9e1a83c310e049770f9e8"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/1A7811338EBD94E04D0475C078809CB182AF739A.ips",
+      "bytes": 21,
+      "sha256": "67c4852ffa20b5c1bcf8ed97b856d2fda0e65d3e974f21750f009237afe71d55"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/1BD31ABF1E3E607CA79B29CF7D7B10758FF93FA0.ips",
+      "bytes": 33,
+      "sha256": "041b2c1deefc7f7375d626bf6737facbae58678e2565061d2448c4e347275d1f"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/22A811D739A648F3967343DAFEB7353C2EA942AB.ips",
+      "bytes": 21,
+      "sha256": "5439aa310743863b743a08217c7df2a179bdb2a019b2f07811bf14addf33d12e"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/2C3E24F46D131685B361FEE1F0570B985095E034.ips",
+      "bytes": 21,
+      "sha256": "33f295aafcf9fc745f39bec63d03be9e44ee05d68deb1a512e6912ed75bdff2a"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/2E29B2674BF76671333C96F3272B1CA6CECF8477.ips",
+      "bytes": 33,
+      "sha256": "fb5d3186a17ebf722a75f9d39e651de8659450d27677cb76fa7e4092244b21c8"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/38774C42DFCB8B9D7AA61550D6AF7D335472556C.ips",
+      "bytes": 21,
+      "sha256": "858af5c9e4b6a300978ec5c5b896eef297325bec245c99f39c4c38be25d730b5"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/3AED90979B380C6415F975F5B784BEA2B4730E8C.ips",
+      "bytes": 21,
+      "sha256": "67c4852ffa20b5c1bcf8ed97b856d2fda0e65d3e974f21750f009237afe71d55"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/43F10952AE80CFADC39A0BF59EA4E552EF4A4528.ips",
+      "bytes": 21,
+      "sha256": "6521c8a547f4d619fe720ba8cb7491273c03eadbb628029039a04937a1da7726"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/440F71259BCA1E97EA3663CBD6EC9315951F9E96.ips",
+      "bytes": 21,
+      "sha256": "bb8958435d298a1fa70e21cfd2f6228269deb13066422d0476484a9ca0522e04"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/523D2C6E08D9BE4B512AD20AA5628B7BB06D73C2.ips",
+      "bytes": 21,
+      "sha256": "4333d2c640eff897ecd23725c1e22ee3a7d3c802ffd2d811ce5020ab722713be"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/5835E2DADB4DD570DD811ABF521FA91AC3C7B717.ips",
+      "bytes": 21,
+      "sha256": "7e1985f15ceceb43d5aa79c046da55370dbd5ebeca7debd73a56fd683d3781f4"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/5DA461C7B6CAE6B88EDF4F914F7CBCF0943B10BB.ips",
+      "bytes": 21,
+      "sha256": "f61a42c5b4e70defa5f49ccf6cab9554afb383054595c04b94b58dedd5d8c562"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/69E25CDEEED5C6520AC2AC8E5EAE01CD8FC46E40.ips",
+      "bytes": 21,
+      "sha256": "3f6f877c050547692bfbaf2c7dd302fe09cbe59ab3252a17436e73bebe4ac18e"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/6F02D68B1DCD2AFFBAED14B5933F81F3C327E537.ips",
+      "bytes": 21,
+      "sha256": "c2e2e3c0813b1efe2265005870ed0fe8db2353d4e95c8d483258fab1c65d3002"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/7A43F840337C28D453718843608EEFF78AFD460B.ips",
+      "bytes": 21,
+      "sha256": "2f47e37c4bd9b7dad3eba9465790fe028be9a55f6e8b66e3d849f7dfa7f31e02"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/7DF07326B6B50CA37F19C1C44F9458406C536B30.ips",
+      "bytes": 21,
+      "sha256": "84fb234aecf12b85a04dbe86fc6972a47665dc040331c403d8657fa6dfdfeef2"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/881206E6B5078EFC4E2C30D7B33E33AD266538C6.ips",
+      "bytes": 21,
+      "sha256": "7e1985f15ceceb43d5aa79c046da55370dbd5ebeca7debd73a56fd683d3781f4"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/88E62489B53EB7AF4D1A2B5ED21D2EFEB581BE16.ips",
+      "bytes": 21,
+      "sha256": "f2944dc1b7906a8b0bffb36bbdd122adf0aa593409f01d9249a948330eae62b3"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/8CB532EA199207191F04CE3DDECEC854C7CF07D6.ips",
+      "bytes": 21,
+      "sha256": "c2e2e3c0813b1efe2265005870ed0fe8db2353d4e95c8d483258fab1c65d3002"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/929014BFCFE462FD76B2BB3454FB304F63C73AC2.ips",
+      "bytes": 21,
+      "sha256": "72f25876a92019039b4b441a5f0323fe0d5a8f769e7a96b4715cc2853a86015d"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/9C72C47F0310F7C9F487047D8EB42DBB96882088.ips",
+      "bytes": 21,
+      "sha256": "84fb234aecf12b85a04dbe86fc6972a47665dc040331c403d8657fa6dfdfeef2"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/A188828ADF447425D97901462EBF732D2E29BC4E.ips",
+      "bytes": 21,
+      "sha256": "fb98868a1ed79405f9fa2ac30ef40e75296534a2cbd58dbf578074939cbc2c1f"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/A2C3AEE4E5A954908BEBAEDEA2010095E9E521B2.ips",
+      "bytes": 21,
+      "sha256": "a6eaa7062a2226a25000cf39648a17b2ed696c5391c8ca3c7cb6d629894a44c2"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/A85F50FBA10E06A3EBA3D3FACB9E075B218C7D6D.ips",
+      "bytes": 21,
+      "sha256": "3f6f877c050547692bfbaf2c7dd302fe09cbe59ab3252a17436e73bebe4ac18e"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/AD32FB6D8F36668C586E538E32576A8D6A3931C0.ips",
+      "bytes": 21,
+      "sha256": "8e26c2b84e4fac20c331e73b2f5a1482589d920200ab40599bdd8511f96148ab"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/B206E5323EA13A4F1A4BE29FDAA0FB4341866DEB.ips",
+      "bytes": 21,
+      "sha256": "f2944dc1b7906a8b0bffb36bbdd122adf0aa593409f01d9249a948330eae62b3"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/B6966381A806655B718F1BF11DB5FF836E3085F7.ips",
+      "bytes": 21,
+      "sha256": "cbd5e286ca3c56dfb46ee74a58593ce6b7ba66bea61f8e69f351f0b247d89c71"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/BA91B5A61E423F51FB83B2C9E6C153CC5AE27DCB.ips",
+      "bytes": 21,
+      "sha256": "165961331a18ab613d9ac5876bf55c06b7f3b6fb67cdeafccc8b01b57da239eb"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/D47D1506009B340829CD545B2A3F3AA7881FBADA.ips",
+      "bytes": 21,
+      "sha256": "20fd7f201f1aa4a283fe813bb114138d00f7535aad5aa316aaf6e9356028d217"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/D82361E0D66DC01AFA3B5116532E5E1ED569C578.ips",
+      "bytes": 21,
+      "sha256": "ff60588d1e1160d940ed82e3bdd209f439b58eb5152d48f6c87e103f7bcec17b"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/E6BFDADD5C69E17D43B7C67E2B2EE8B2E50C8E1F.ips",
+      "bytes": 21,
+      "sha256": "0edf9b4a0ceef77277e904cc533665769a53a84a3f53d5aaeb544b8dd660ca96"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nfim_ctest/FD53CB863709DFFEC19C0889F61D4C424AFFD4ED.ips",
+      "bytes": 21,
+      "sha256": "0a681b747bc6a934865f2f85434692d6b9572805e44b12416d4bcc3146708589"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nim-prodinfo-blank-fix/0CDDAED25D1DEF356243866F7657B4026993996A.ips",
+      "bytes": 21,
+      "sha256": "0112618674f8216418b5ea6bafd5df39e91eaf17e9cebc175873ccaa49b80670"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nim-prodinfo-blank-fix/412CA954A47280118C72280EFAEAC33F490793B6.ips",
+      "bytes": 19,
+      "sha256": "c029d75a064d1103e4c5c52b47a674264e9680e56ff84bfc3b68574541c0f705"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nim-prodinfo-blank-fix/4240898DA430050F363C4F740C40514AE244AFFD.ips",
+      "bytes": 57,
+      "sha256": "49b7f788d044673ca341a8da08d59ca2fb930d064fcf12cf3a25343bbd82e156"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nim-prodinfo-blank-fix/5CFAC5752420D8B8933A9A4D83FD58AAC3CEE112.ips",
+      "bytes": 33,
+      "sha256": "6bdb20e95505f82eeefcd63f06c6c71951e102a194860cc4920f9ca0ef0c0edd"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nim-prodinfo-blank-fix/7A0ECCE9375DC38BA907EE7F9F4BD6046075AF96.ips",
+      "bytes": 33,
+      "sha256": "344a9385c0315c99ec1f177e2fac549f6e9c2325c41468af9463021c49f20a4f"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nim-prodinfo-blank-fix/9A576C1A8BE653CD24C88A8C239DADA3E1EF73F8.ips",
+      "bytes": 19,
+      "sha256": "affd1ce1a5373843b5e8a452d701a59867368415da5ded5f989581ad2174f8fe"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nim-prodinfo-blank-fix/B469C48D7102CC0BA09AC447249E43F9BAAC245E.ips",
+      "bytes": 21,
+      "sha256": "6bd5d21f54ccfd15b9c5d186d657c8c0a86c0a3f7a20583328a32ad3b8a8ab63"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nim-prodinfo-blank-fix/C14BC0AD5027F6B6B49A5A6B2D52D5E8306EE1D2.ips",
+      "bytes": 19,
+      "sha256": "9a1f977359d3f5133a2104997fee7f5949a865868ff2df2e609f6603c0b646ba"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nim-prodinfo-blank-fix/C54A1B3EB06FF3F5DCCBAC1AEFD5CA5459A2A6E6.ips",
+      "bytes": 19,
+      "sha256": "27c0527e785123b8fb6b32ca4f9b042ae8b49bf3189beb328b69f72c96fbf7a5"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nim-prodinfo-blank-fix/CC269DEA7E3AE16FAA39215F5A1CEF5C82FA1C00.ips",
+      "bytes": 19,
+      "sha256": "c029d75a064d1103e4c5c52b47a674264e9680e56ff84bfc3b68574541c0f705"
+    },
+    {
+      "path": "atmosphere/exefs_patches/nim-prodinfo-blank-fix/DAEEEF46027BA6E83688C05C396E6C6B17F29001.ips",
+      "bytes": 19,
+      "sha256": "4d3afaeaa38f88415abd3de2e11cc3d365c337e2952e32d3e1edeef36cf1a1f4"
+    },
+    {
+      "path": "atmosphere/hbl.nsp",
+      "bytes": 40946,
+      "sha256": "853df8526557b82c6b2018a8a102d22e8306687415e49653530dfd9a1d603b32"
+    },
+    {
+      "path": "atmosphere/hbl_html/accessible-urls/accessible-urls.txt",
+      "bytes": 7,
+      "sha256": "c0ef504fc74165be6bc13b8924e02eca8670234d4431466c1bd089c2f52d6bdc"
+    },
+    {
+      "path": "atmosphere/hosts/default.txt",
+      "bytes": 99,
+      "sha256": "c50718bb301a8102048fc5e23b2fd2a4d261dd351cb8301f5724fb49aa8c15d2"
+    },
+    {
+      "path": "atmosphere/hosts/emummc.txt",
+      "bytes": 1234,
+      "sha256": "76839401826ed40db01566ba1ab368de03d1d26341afa1880f6ca21623cc1094"
+    },
+    {
+      "path": "atmosphere/hosts/sysmmc.txt",
+      "bytes": 1234,
+      "sha256": "76839401826ed40db01566ba1ab368de03d1d26341afa1880f6ca21623cc1094"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/01ED6B874C1FEF414B23E2B52FD775E560721BB93FD716D4EA66479CC23A4831.ips",
+      "bytes": 29,
+      "sha256": "cdd0514eccd0812c03dafa8e1b23797376700a5f7dc7e74459447d36da6826cf"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/02D5ABAAFD20C8B0633AA0DBAEE0377EF526CE6AD2AC6F2CAD7180CE69E74311.ips",
+      "bytes": 44,
+      "sha256": "31904bfd6ab6d3695bf49b2fce9744e74eaf44c3e2f3673b83ceb73ca813b4fd"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/06E90719595A010C6246FF70946F10FB367A00BBD8B7D8D1F25CCE0B458D7E89.ips",
+      "bytes": 44,
+      "sha256": "31904bfd6ab6d3695bf49b2fce9744e74eaf44c3e2f3673b83ceb73ca813b4fd"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/073099D7C6AD7D8983BC7ADD932BE3D1243193792E0920955DBC17F5794FDE28.ips",
+      "bytes": 44,
+      "sha256": "22608e7d65e4267cfdf7f7f947b720354388edb47b388f3fe13b9b03b09146b6"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/0BA15BB304B505633B6DA6B2C6E991B6A06EBAFB3378DF02BF6B494075976F06.ips",
+      "bytes": 17,
+      "sha256": "c3518116db43c4955685c46fd8ebc35a74de9dcb4e1b59a9b22eaaf4ee96495c"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/0D7005627B07767C0B963F9AFFDDE56628A27116CFC4D8B2AF42BDEEBF97205B.ips",
+      "bytes": 44,
+      "sha256": "49027f590e8970f4a8037f569a71d5fcecc996dea3c232ef0a8a8a3bae27aa7f"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/10B2D81605488599DF2242CB6BAC2DF1E2BCAB3BC19DC5CD63DB6FAEC0947097.ips",
+      "bytes": 98,
+      "sha256": "c91f755d3e3a31f1b6ee67e37ef84aa270c4116c00e513ff42647d58b7274111"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/160D3E104EAD6176991B8AE7AFA2B78BC5879FC07BE88A4FC9E16812971BC161.ips",
+      "bytes": 17,
+      "sha256": "a8296ce7a933c7e78ee315dbc231707b662e32e39c875f503e954d288a9fecdf"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/1E2C64B1CCE27824999B9DC2276701696C9569CBC607501D65CC1386CE485B65.ips",
+      "bytes": 26,
+      "sha256": "91a970cbb0f9f82ab4011fc7f36ade0b96f3349191d4a9d5630e2b356dfdcb1e"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/204CBA86DE08446A4ED2B6925C1981675D1FE81C1CA71D5B8B6DD76396C8B5F7.ips",
+      "bytes": 26,
+      "sha256": "91a970cbb0f9f82ab4011fc7f36ade0b96f3349191d4a9d5630e2b356dfdcb1e"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/27073BF0A1B8CE6108EEC562D654669ECC5AE576F42D2A9FF6424C623B98E8D8.ips",
+      "bytes": 26,
+      "sha256": "9709511943a4598df45d3e2160d2acd5734b929757db60b54616fbf3de58501d"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/2ADBE97E9B5F41779EC95FFE2699C93305D6A69D465CF597D67465CD69BACCE8.ips",
+      "bytes": 35,
+      "sha256": "c347dc2662ba3088c34e0057d3329b7632d47f65f1446a3dd7f1c79a57b20bf0"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/2CCE659CEC536A8E4D91F3BE4B74BED302613F1E442581FD863708E39112DB50.ips",
+      "bytes": 35,
+      "sha256": "02abc186162f148a83ecc7b44ed26447f85948eb26139e02550847d7e19222ef"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/330553F6B5FB55C4C2D7B736240276B3EAD664DA79826FA936F99803B6C28F3B.ips",
+      "bytes": 98,
+      "sha256": "75315445c626eb951b41ab70ce4eb8e3eae650514b8e6b71c6c81c742df65535"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/34383EE7999263403BA7577817404E72A2BDE0B14A7B309DD26E685A94D6E145.ips",
+      "bytes": 29,
+      "sha256": "d00310adfad5696b4799b393ed5c205b1e4e0af8fffd513636ec07ba0e07f162"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/34C0D9ED6AD1873DCD02F1C12AFA20546D033EFB1D8EB9B7A8E5ABAB71F39F43.ips",
+      "bytes": 26,
+      "sha256": "1e93dc42647ff39f5148c815814335508adecb182fffe7ed5b60ef77dcfec620"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/39EE1F1E0EA7325DD105C1BABE90F306A5AA5DEC70024D4F9461F94C8E0206AE.ips",
+      "bytes": 26,
+      "sha256": "a03f34702f39c2f2f7e41800fe40cccb60bc722151e2f241a22bc2f06fbed9fe"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/3A574D436186191D1788EB2C0F076B11737132EBB1484CF906B6A8EB3B1BF459.ips",
+      "bytes": 98,
+      "sha256": "28ccdcbca6c7eaf794880f234ac87eea7f91fa641a1fddbbf4d31f1791077ae2"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/3EEBD9B7BCD1B5E0BCC2007D6514F7A4845A1F42AAD795573FD2865DADE1C5E0.ips",
+      "bytes": 17,
+      "sha256": "21de53c2535ac05e6b6646a342cf47838789344e873dac20ac650fdb85f9813f"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/468740761E193EB758794688F1D9F762CBA1185ADDAD4EC3C479EC8FBFEC31DD.ips",
+      "bytes": 35,
+      "sha256": "e4727417455f0f68192fa6293a8b18f50bc704c639fddc5e41ba88eebe91986f"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/47410710654FA43FE8B6D13B769C1EAF08309DCA55F3B2416970DC0B6D397231.ips",
+      "bytes": 26,
+      "sha256": "4a1c4b31280b9e39dd235eb1df51f011b3ce8c6fb80c1488a6e5bae6f7a09384"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/51EBFA9CCF66C09EC796C069C6C6D03C01D504CC0B17F4FAA919446E7E9DB107.ips",
+      "bytes": 26,
+      "sha256": "51444fb0f9f75310ccc9c7e6ac805cb73b3d4e06b8eaf59ca7842efe2cefed62"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/536D938469FE73BE3C76DA0333B289C0ED29F10C2A8AFDFF8E466142C4277359.ips",
+      "bytes": 26,
+      "sha256": "ee08dd4afd86dbeac9fbb49ec912dd81ebcf545194974eb6cd0473c2bae9677f"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/549B0F8D6F72C4E9F3FD1F19EACE4A5A1DA2D5C393F74224F8BC09DE4AAA4217.ips",
+      "bytes": 44,
+      "sha256": "31904bfd6ab6d3695bf49b2fce9744e74eaf44c3e2f3673b83ceb73ca813b4fd"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/562517A192C3C8F0BFF7B2D73F7949988D480361A90CBFC1FDE113329E7B2D30.ips",
+      "bytes": 26,
+      "sha256": "a2620250f0c1c9dcc2a923225f63635e9fcbbe1844b3fa6ef425c842614e6b4d"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/56E856566C38D8BEA79A70FF6F9756804CFF57907E2EAC7BD8E9C1FC1C7B96CE.ips",
+      "bytes": 26,
+      "sha256": "bf11247d9ab5ef1beb5c5df78f985f2fd3b531e37c52d18c00a84cfee0dd08a7"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/57397C063F10B6313F4D837653CCC371BE2158BF6DD889326648D5C83D50CECF.ips",
+      "bytes": 44,
+      "sha256": "22608e7d65e4267cfdf7f7f947b720354388edb47b388f3fe13b9b03b09146b6"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/62C65EFD9ABF7C434275AA99BE0A0D9A222E89805044A6C04ADAB26D2AA1AA5E.ips",
+      "bytes": 26,
+      "sha256": "e98c14ae91b9ecb24b01b35c5b0c0457decb6d1c71fd8c363bf191f54d40d680"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/6354969E60A7977B5A3C0E25EF39DEC1D84AC43E4F2BE16B3521A4FB4D6D0548.ips",
+      "bytes": 26,
+      "sha256": "4a1c4b31280b9e39dd235eb1df51f011b3ce8c6fb80c1488a6e5bae6f7a09384"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/6B09B67B29C020246DC34F5A04F5D3090215C46F37BD079442977A85B8243BA5.ips",
+      "bytes": 35,
+      "sha256": "03f29ce2834c5c9965a32fe0746009cc8507e3f585132b2e1cc789b4567706c2"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/6E2BD9BAA3B910F1D236A3304534603795DAA62AA9F2807328A29CAEF908DF4B.ips",
+      "bytes": 26,
+      "sha256": "a2620250f0c1c9dcc2a923225f63635e9fcbbe1844b3fa6ef425c842614e6b4d"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/763827EE9C207E5BA99AE5BDC872DFCFB69D8F1261D80A60F3AC25AC9C90C230.ips",
+      "bytes": 26,
+      "sha256": "51444fb0f9f75310ccc9c7e6ac805cb73b3d4e06b8eaf59ca7842efe2cefed62"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/76F87402C9387C0F0A2FAB1B45CEBB93E3E9695C7CFD390F00509B1204101C24.ips",
+      "bytes": 98,
+      "sha256": "c91f755d3e3a31f1b6ee67e37ef84aa270c4116c00e513ff42647d58b7274111"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/795F5A5EB0C6779EF2D5763E0052B3FB605C796869FE268F0C58714861EFCAEC.ips",
+      "bytes": 26,
+      "sha256": "91a970cbb0f9f82ab4011fc7f36ade0b96f3349191d4a9d5630e2b356dfdcb1e"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/7B902837F20027497415E2AD51534E6EF83C8FC1E242271C429CDC8F3E66CB47.ips",
+      "bytes": 29,
+      "sha256": "afd2a698c6f5e8675f7d6183863c96419d2788f977efc361f2c3f6cf1d4f70f1"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/7C951376E5C12DF85FA6A9F46F6957A4B1271C1F8201B99735D8DF152E7913F1.ips",
+      "bytes": 35,
+      "sha256": "e4727417455f0f68192fa6293a8b18f50bc704c639fddc5e41ba88eebe91986f"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/7D200547178A836A24993B002AFD83D0B662AA7177E935C04C36EAC21BAC24AA.ips",
+      "bytes": 26,
+      "sha256": "51444fb0f9f75310ccc9c7e6ac805cb73b3d4e06b8eaf59ca7842efe2cefed62"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/8096AF7C6A35AA8271F3916995413B0B64CE03BD9BBFEB26F2B3E01C5427C69E.ips",
+      "bytes": 44,
+      "sha256": "31904bfd6ab6d3695bf49b2fce9744e74eaf44c3e2f3673b83ceb73ca813b4fd"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/817EA2B0B702C1F37EC5E0A7A61F745440422037DAA3537CEF4E856C40273F78.ips",
+      "bytes": 17,
+      "sha256": "21de53c2535ac05e6b6646a342cf47838789344e873dac20ac650fdb85f9813f"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/887AC150806C75CCC40DA0AA98CC09B3E468E6C78F315F927FBEDD91B16DE27A.ips",
+      "bytes": 26,
+      "sha256": "027c5db6aa8f3b8c7596f56c2df032948b69e5ca7fd730f50fbf691652254726"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/91BA65A21C1D50AEF6E6B535B491A36CD1B2DFB2DA2F0AB4A93F03097BB894E0.ips",
+      "bytes": 26,
+      "sha256": "51444fb0f9f75310ccc9c7e6ac805cb73b3d4e06b8eaf59ca7842efe2cefed62"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/981C57E7F02F70F7BCDE753181D901A62A2452B04F5C5FB86500A2172CC44641.ips",
+      "bytes": 44,
+      "sha256": "ee7560bf4b1b7e455d6a5122f5db25faa4d96fc92efd2adb08a1404cbf1ebace"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/A339F01C95BFA768DE461DA745130E932531C2DF986E3BC649A0B89CED0A1CC7.ips",
+      "bytes": 26,
+      "sha256": "91a970cbb0f9f82ab4011fc7f36ade0b96f3349191d4a9d5630e2b356dfdcb1e"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/A51AA4926C41875905D1DA2FE9788FC849F8699F9FB5CE42EBD7B89FD5D08B8B.ips",
+      "bytes": 26,
+      "sha256": "4a1c4b31280b9e39dd235eb1df51f011b3ce8c6fb80c1488a6e5bae6f7a09384"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/A6F27AD9AC7C73AD419B63B23E785A0CD7AA9DC1A63C57D10049423DE7B77E2C.ips",
+      "bytes": 44,
+      "sha256": "728ff2b4701a137c09ee1097f5fea55d949fc8fb431d4cc11d0210387077ba4c"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/A86DA5E87EF1097B23DAB5B4DBBAEFE780310AE643D319D6A7A149B9688651A5.ips",
+      "bytes": 44,
+      "sha256": "ee7560bf4b1b7e455d6a5122f5db25faa4d96fc92efd2adb08a1404cbf1ebace"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/A952B657ADF9C2BA1434BA9B8B86F3317D20659A8AC8510D8ECF4CE1BD7593E2.ips",
+      "bytes": 17,
+      "sha256": "a8296ce7a933c7e78ee315dbc231707b662e32e39c875f503e954d288a9fecdf"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/AF1DBDC782983CBDCF446D3BB7DB1F5408552974C63BC2DA42DD0A28EAF3E5DD.ips",
+      "bytes": 26,
+      "sha256": "a2620250f0c1c9dcc2a923225f63635e9fcbbe1844b3fa6ef425c842614e6b4d"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/B2F5176B3548364D079A29B141A23B06AFFF5A98055576D5F337A621C0233CE3.ips",
+      "bytes": 35,
+      "sha256": "9d8f8104b5cd74ffaf7f9883d00b32222eaeb6f8782f68e4e1e1ccb3dee8fa7f"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/B4CAE1F24965D92ED24EBE9E97F609C363834471BF18CA375CB6A1DEB77755EA.ips",
+      "bytes": 35,
+      "sha256": "e51d221e91dafeb31fff5b3dac31a1063c01e7a0581832aa8abbf02c40994348"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/B5E7A64C6F5C4FE319C36FD7D642F75B0159771671F73082448ACE30BD6BAE89.ips",
+      "bytes": 35,
+      "sha256": "f93e95517c6f0b6397a204443274fab99be0dc8c7b1eb97814c58dec5828e0c8"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/B7A29739B7EDDEFCF37665FD06EF1F37B9F7ED3A34C88C85858E27738121C5C4.ips",
+      "bytes": 26,
+      "sha256": "ee08dd4afd86dbeac9fbb49ec912dd81ebcf545194974eb6cd0473c2bae9677f"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/C86762BE19A51FA0C737AE921A816846605A64739523B4894F847BBED59E31EA.ips",
+      "bytes": 26,
+      "sha256": "3de8d04f73f715fb840f50b7b333c21a66757ac3d23dea857f108e7f915448f3"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/CD7BBE18D6130B28F62F19FA7945535B6829EFE64EF4AAF0DF8DA19885FE4A9A.ips",
+      "bytes": 44,
+      "sha256": "a29692a3e056380149d97de90b9747eb208874d06255ac0dbe6ca1a421c16db0"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/CE3ECBA2F2F062F575F8F360842B32B432340DD2C7590CDEFC03E51B844AE805.ips",
+      "bytes": 44,
+      "sha256": "728ff2b4701a137c09ee1097f5fea55d949fc8fb431d4cc11d0210387077ba4c"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/CFAB450C2C539DA947D0A12A9DE10911FA539A348B7C3D64CE9BA74D9E0355DE.ips",
+      "bytes": 26,
+      "sha256": "815d04538afc3a8fc44f20f9f89857dcc49b643ada948f9ea384b79e1f0510c8"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/D0D4491814B562AF61ABD52E4BF0989405AF741A5C7C033AB3EB0EC8680AD98F.ips",
+      "bytes": 26,
+      "sha256": "53d4c7066585439a2965582fdf995a7a5f0316be988d025eb4a0ce86f4f1d577"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/D44528295B4192BAAA42DF13488322AC0DD4714C57FA11154707762CF23E7687.ips",
+      "bytes": 26,
+      "sha256": "ee08dd4afd86dbeac9fbb49ec912dd81ebcf545194974eb6cd0473c2bae9677f"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/D488D1F29217355C22ABDA773FDEA582B13D475B74BCB02B998C66AB1B3E4309.ips",
+      "bytes": 26,
+      "sha256": "c0acdbc4ef585e1aa06f5f359f003c68c17ef635d1e66bea9a5f10e3e5b3ecb0"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/D5A5BF36640C49EA1D6BC5826772EEDFC11FD8626146B388E5E59322719B6AF7.ips",
+      "bytes": 17,
+      "sha256": "d4f737f0894cd8c6e45be1dc7cf5ad299d2c83741876905be2f24936ac87d4c5"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/D94C6815F8F50A2067C841311CA88982824A2A79B86DFC58F91509760F317BB6.ips",
+      "bytes": 35,
+      "sha256": "d8aa4e1579449b254d56ae8bf01b261ee19b12cf7b136418f17da0324b3bf058"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/DBD85FCACC193DA83051C664E6452D32FD4F7922E5E29A281695B578347F8161.ips",
+      "bytes": 44,
+      "sha256": "49027f590e8970f4a8037f569a71d5fcecc996dea3c232ef0a8a8a3bae27aa7f"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/DBD941C0C53C52CCF7202C84D8E0F78013A3684D8AB5D128096674A8F7755B3D.ips",
+      "bytes": 35,
+      "sha256": "e51d221e91dafeb31fff5b3dac31a1063c01e7a0581832aa8abbf02c40994348"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/DC2A084996BB3C010035FCF196F940597E0B8EBFF2AC701F34F9997CCB531CDE.ips",
+      "bytes": 17,
+      "sha256": "d4f737f0894cd8c6e45be1dc7cf5ad299d2c83741876905be2f24936ac87d4c5"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/DE9FDDA4085DD5FE68DCB20B41095BB4010856AF280201552F38273B44CECD6F.ips",
+      "bytes": 44,
+      "sha256": "943ff897468c5553707044cc6dfbcc94c60ef6b552c671f5eab1583568924375"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/E1E8D3D6A2FE0B102CC79F8310EEEF66E5D14BCA2ED73454455FD87C615EEDC0.ips",
+      "bytes": 26,
+      "sha256": "3de8d04f73f715fb840f50b7b333c21a66757ac3d23dea857f108e7f915448f3"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/E399156E844EB0AA3CC5152979961C879F5E90696C1224A1BBE0FF1BCDBFD7DC.ips",
+      "bytes": 17,
+      "sha256": "c3518116db43c4955685c46fd8ebc35a74de9dcb4e1b59a9b22eaaf4ee96495c"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/E76692DFAA0420E9FDD68E436316181814CBD72E915E153174332C6BEAA41FC3.ips",
+      "bytes": 44,
+      "sha256": "a29692a3e056380149d97de90b9747eb208874d06255ac0dbe6ca1a421c16db0"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/ED34B450584A5B43150CFF94D6A7C49F6B7F4C649B7CC6A0D8A0BB316EB52B76.ips",
+      "bytes": 26,
+      "sha256": "4a1c4b31280b9e39dd235eb1df51f011b3ce8c6fb80c1488a6e5bae6f7a09384"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/EDA87868A4490750DD5ABA6BA758FC1545945A874A42AC124D92944C6560FE9F.ips",
+      "bytes": 35,
+      "sha256": "d8aa4e1579449b254d56ae8bf01b261ee19b12cf7b136418f17da0324b3bf058"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/EE0F4BAC6D1FFC4BB5ADCBD12455B24E4EF924A3DB5F9158792F57FA11DA83A1.ips",
+      "bytes": 26,
+      "sha256": "9709511943a4598df45d3e2160d2acd5734b929757db60b54616fbf3de58501d"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/EE4B3012A68402255043E718CDC247C4D88F17A7BDC566FDA54D7EB702B0751C.ips",
+      "bytes": 26,
+      "sha256": "a2620250f0c1c9dcc2a923225f63635e9fcbbe1844b3fa6ef425c842614e6b4d"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/F196D144D04445B6E7497CB6405B7FC305B54F961024BF432575296E4D52BC99.ips",
+      "bytes": 35,
+      "sha256": "f93e95517c6f0b6397a204443274fab99be0dc8c7b1eb97814c58dec5828e0c8"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/FB0B68DB2403D119A2D058741781AED1330F493F1065CC62B7CB42252AF4AC9B.ips",
+      "bytes": 26,
+      "sha256": "ee08dd4afd86dbeac9fbb49ec912dd81ebcf545194974eb6cd0473c2bae9677f"
+    },
+    {
+      "path": "atmosphere/kip_patches/fs_patches/FDAF163288E1080549189EC8CAF29D1E14335021739AC0A7353460108A5B2411.ips",
+      "bytes": 29,
+      "sha256": "096e731d7ace2bc66c047f974438ac4c9d42f27e8d37ff254c3c341b84d18bb5"
+    },
+    {
+      "path": "atmosphere/kip_patches/loader_patches/82F95A5AC7FA67CDEABFB885183E27C9C46554708CEBAA23A3F48D35D85A1513.ips",
+      "bytes": 14,
+      "sha256": "3d28c2aa310dfc2da1ec80e5934f48f97b05dd6a992a14f10d7c097fdcc108fe"
+    },
+    {
+      "path": "atmosphere/package3",
+      "bytes": 8388608,
+      "sha256": "946bb5a85c35b1204dfeae230ad3415803e0848745bb41f8e0ccee4ff27a96f9"
+    },
+    {
+      "path": "atmosphere/reboot_payload.bin",
+      "bytes": 110208,
+      "sha256": "09752abd207803708add6e22151e94b71ffbaaff769d1bad759584b76ef6f05e"
+    },
+    {
+      "path": "atmosphere/stratosphere.romfs",
+      "bytes": 1484156,
+      "sha256": "fddb8a4285d061bfc320eb48bce1c4615353c9eaa905e7620d0d74aa7ad82b8f"
+    },
+    {
+      "path": "boot.dat",
+      "bytes": 11520,
+      "sha256": "df8003f0a2e9d579e4310412d91dcadbc65c98aa7fbd4812c3807e2bf5d4f532"
+    },
+    {
+      "path": "bootloader/bootlogo.bmp",
+      "bytes": 3686454,
+      "sha256": "9f4f59cd7f0e5eca84d9ab8261a82e7181bb1d1cb1c49579262ebaeeb29338fc"
+    },
+    {
+      "path": "bootloader/hekate_ipl.ini",
+      "bytes": 540,
+      "sha256": "08654780cd5ea1bc9f26903525444943bad61d58ff29b5ff2f4ab70442a40fce"
+    },
+    {
+      "path": "bootloader/ini/more.ini",
+      "bytes": 404,
+      "sha256": "fbd2d435e82a0c93079a615342183b37181aa4c23c8a0fafef889b8acadd60ca"
+    },
+    {
+      "path": "bootloader/patches.ini",
+      "bytes": 17157,
+      "sha256": "bb56bc8e30d3a144bb5a2c1b75a899f1e8bfd5c72437e85a4919d57d7217b52e"
+    },
+    {
+      "path": "bootloader/payloads/CommonProblemResolver.bin",
+      "bytes": 82053,
+      "sha256": "43d110d7d8b31c5f29aff3c21df278669a1b72a68df6fec920899d05ef81ef48"
+    },
+    {
+      "path": "bootloader/payloads/DowngradeFixer.bin",
+      "bytes": 133297,
+      "sha256": "aca899c89ef4e12b1edb3b556284956a841b4a771002662201e5fb932205c533"
+    },
+    {
+      "path": "bootloader/payloads/Lockpick_RCM.bin",
+      "bytes": 114776,
+      "sha256": "f56628648c971a3ee9fec020d291df4121b21606a9dc1d94f8456ed012ce2aef"
+    },
+    {
+      "path": "bootloader/payloads/TegraExplorer.bin",
+      "bytes": 123304,
+      "sha256": "e1ef7db7c9b0f3a8fd7b9e5fe4c39e12e5e33ba4d72e296903b9e50ebc066d05"
+    },
+    {
+      "path": "bootloader/payloads/Warmboot_Extractor.bin",
+      "bytes": 64798,
+      "sha256": "c6c8d6030eedc3d7279e311db5818e1e3be02b8e210cecfa56c3ef404bfa98d0"
+    },
+    {
+      "path": "bootloader/payloads/fusee.bin",
+      "bytes": 112160,
+      "sha256": "1ef8e019fcd6e6026f88075e8dc391f461614d915f4322af776c9903d42ff5ca"
+    },
+    {
+      "path": "bootloader/payloads/hwfly_toolbox.bin",
+      "bytes": 78348,
+      "sha256": "991ece86a73c197e27fd9e4ecf29143990f89a72062c754671f3f3f18cdcc885"
+    },
+    {
+      "path": "bootloader/payloads/picofly_toolbox.bin",
+      "bytes": 70608,
+      "sha256": "c16c1a64139551a9fcffa19c03e5f6d015565fe7f1768712acb1903972697a87"
+    },
+    {
+      "path": "bootloader/res/auto.bmp",
+      "bytes": 147510,
+      "sha256": "84e2b0d303b514e803b95c6be3893d3569528779169f46aab34362f649155076"
+    },
+    {
+      "path": "bootloader/res/emucfw.bmp",
+      "bytes": 147510,
+      "sha256": "1304456230fe0f91447b8ba9c812c57b7d24ba292faade5732426b83f1001f2e"
+    },
+    {
+      "path": "bootloader/res/lakka.bmp",
+      "bytes": 147510,
+      "sha256": "70ca19a785b7dfe300f6facdb77065d8c45e2d7916c63db4fd51c52d63b1564b"
+    },
+    {
+      "path": "bootloader/res/syscfw.bmp",
+      "bytes": 147510,
+      "sha256": "727fa015c3f97f53709ea1d51161f7c7c5ed2a77a553d8d1b4e9cedd77702381"
+    },
+    {
+      "path": "bootloader/res/sysofw.bmp",
+      "bytes": 147510,
+      "sha256": "64b664cc479f3b5df0f5c199eb110baf85ab306988a812b101ffc5aaf18418ed"
+    },
+    {
+      "path": "bootloader/res/ubuntu.bmp",
+      "bytes": 147510,
+      "sha256": "681794d579a7793cce0cf2cb229f457eb053de4c26d58ba7a25ff7af3c268c8d"
+    },
+    {
+      "path": "bootloader/sys/emummc.kipm",
+      "bytes": 352384,
+      "sha256": "a0154fcbd43dad6ef5d076e5565ed4a8216686aeab89b3107878f33d33a63d22"
+    },
+    {
+      "path": "bootloader/sys/l4t/bpmpfw.bin",
+      "bytes": 101780,
+      "sha256": "943463950880ae7892a1eb8d3a280b3f86083bca0164c663bf4126210be73ecb"
+    },
+    {
+      "path": "bootloader/sys/l4t/bpmpfw_b01.bin",
+      "bytes": 198692,
+      "sha256": "19e907f80a8760da39d6a97fae825955daacccc6c1a382e22df52169e39ac09b"
+    },
+    {
+      "path": "bootloader/sys/l4t/mtc_tbl_b01.bin",
+      "bytes": 141904,
+      "sha256": "12e49e9770b61539d072c6145700659977917076325540aeba9022ff51672822"
+    },
+    {
+      "path": "bootloader/sys/l4t/sc7entry.bin",
+      "bytes": 1764,
+      "sha256": "676aedce279d0912bb30c1e06c28b6cbfbaee24f7b21cb8e1f7da422b34b28cf"
+    },
+    {
+      "path": "bootloader/sys/l4t/sc7exit.bin",
+      "bytes": 2420,
+      "sha256": "5e9ce4dd187145c096043509aa8e5a576668bdf8c6781d7bc70bece2aaca79a3"
+    },
+    {
+      "path": "bootloader/sys/l4t/sc7exit_b01.bin",
+      "bytes": 3624,
+      "sha256": "39361cb53efff5b85cc3b97d89610cbb76dbf6d3110afe879d0e87e32a672f59"
+    },
+    {
+      "path": "bootloader/sys/libsys_lp0.bso",
+      "bytes": 42956,
+      "sha256": "38b73773d47014841823c72cade509e1986cf1c0809e39c64a20cc2186c4d4f2"
+    },
+    {
+      "path": "bootloader/sys/libsys_minerva.bso",
+      "bytes": 146680,
+      "sha256": "73d6c05475e530a3e098065024a5a3bbde5a2371123081904c8ac0cb7bae395b"
+    },
+    {
+      "path": "bootloader/sys/nyx.bin",
+      "bytes": 1404313,
+      "sha256": "5148b8677bec5bbe5981f18e6fd00ea5038b3ab47e9cbe5ca142072d54431da0"
+    },
+    {
+      "path": "bootloader/sys/nyx.bin.en",
+      "bytes": 477565,
+      "sha256": "309f58f934b50c4ae990f8dbb02b7106c16b9391bb1e516d66f1aa48871d1e6d"
+    },
+    {
+      "path": "bootloader/sys/res.pak",
+      "bytes": 405504,
+      "sha256": "3570aa7a28b6c7cc3bd1003f3e0aa6e3ef58064da9708717b18ab1e178f959bc"
+    },
+    {
+      "path": "bootloader/sys/thk.bin",
+      "bytes": 7936,
+      "sha256": "4c04434899d04a364fe9cb98aa98c0a3f0bb5c4ba42deab15e0485e9872519e2"
+    },
+    {
+      "path": "bootloader/update.bin",
+      "bytes": 110208,
+      "sha256": "09752abd207803708add6e22151e94b71ffbaaff769d1bad759584b76ef6f05e"
+    },
+    {
+      "path": "config/ovl-sysmodules/config.ini",
+      "bytes": 172,
+      "sha256": "c6001b2dbc20e8ee1dfa4dad5b80d48a3acaa926e5a325e5b8be320a4d10db8b"
+    },
+    {
+      "path": "config/sphaira/config.ini",
+      "bytes": 168,
+      "sha256": "ae26b292f637611ef307ab755ae8b94011e41119baa0983f61fb1621e3c445cb"
+    },
+    {
+      "path": "config/status-monitor/config.ini",
+      "bytes": 1531,
+      "sha256": "e7a44d70830a858b62ada228ac2e450c817ae22b63a94aa1e47018fa251d302a"
+    },
+    {
+      "path": "config/sys-clk/config.ini",
+      "bytes": 31,
+      "sha256": "c4b86452c073faf750126d510552836af8ee45cf0d72959e64326b1668626c6f"
+    },
+    {
+      "path": "config/tesla/config.ini",
+      "bytes": 26,
+      "sha256": "37cff6d1d5109cdb1777cd0491f355673858153176d6021ae35a4801aeaafb00"
+    },
+    {
+      "path": "config/ultrahand/config.ini",
+      "bytes": 401,
+      "sha256": "98cd3478a7b06213601214fe7cf676864b63fbbf3bddcc6090deabbb294a9301"
+    },
+    {
+      "path": "config/ultrahand/lang/de.json",
+      "bytes": 7339,
+      "sha256": "1c3df1341afe6aec2c2d6b7e731fb8c9ee380c533cd7e2c99b553276c39ca304"
+    },
+    {
+      "path": "config/ultrahand/lang/en.json",
+      "bytes": 7000,
+      "sha256": "164e8822cd1c81014225f0b45b9f128f1c533ba2712d8aca450336cfb87dc898"
+    },
+    {
+      "path": "config/ultrahand/lang/es.json",
+      "bytes": 7396,
+      "sha256": "5b700777836c54a939e053bca7668f12fc657e2847f6abf624d1a8f72dfa063e"
+    },
+    {
+      "path": "config/ultrahand/lang/fr.json",
+      "bytes": 7307,
+      "sha256": "782f1b18c27a2db4358eba046fd469df20e22e7c11e8e6ff126311831816b42e"
+    },
+    {
+      "path": "config/ultrahand/lang/it.json",
+      "bytes": 7267,
+      "sha256": "f7ee15bb18b016a2f30808a02be732b5fc11302819ef2b9fb28dbfb09b138e7d"
+    },
+    {
+      "path": "config/ultrahand/lang/ja.json",
+      "bytes": 7663,
+      "sha256": "6776b9c3812f8d8e551325124d19a9ff6b9c48c2077c0d07b579215aa3f8f16c"
+    },
+    {
+      "path": "config/ultrahand/lang/ko.json",
+      "bytes": 7308,
+      "sha256": "5ea12b7af2fba64ebbc3ec861c97ba1a4f1aabafd21d74644f41bdd802c79815"
+    },
+    {
+      "path": "config/ultrahand/lang/nl.json",
+      "bytes": 7113,
+      "sha256": "7bce966e545b2ccbb931b330becf0488e4b376fdbfca4c4105bb2aabdbc751cc"
+    },
+    {
+      "path": "config/ultrahand/lang/pl.json",
+      "bytes": 7277,
+      "sha256": "61c579c38fca1f267fd77f7385b98f6a5dd1b57b76ff4ce13b26c5da947dc1d2"
+    },
+    {
+      "path": "config/ultrahand/lang/pt.json",
+      "bytes": 7467,
+      "sha256": "f5ea90ccad595fb93a35afef09360737bc3c9dc5896b02b1c019f0fde9a5dfcb"
+    },
+    {
+      "path": "config/ultrahand/lang/ru.json",
+      "bytes": 9552,
+      "sha256": "47b7769f9cd2c4506644017d079aac0e89a765a8160cffd88dce87d7364e16f1"
+    },
+    {
+      "path": "config/ultrahand/lang/uk.json",
+      "bytes": 9279,
+      "sha256": "8ca21ee0e7fe4c08f70461ec1b86e03b74b124aaa2cddf82eda11a79dcd7a73e"
+    },
+    {
+      "path": "config/ultrahand/lang/zh-cn.json",
+      "bytes": 6843,
+      "sha256": "601c5db1c553533259940a4f9835aa0b3284eef62fe91e83a23dbe7093f54374"
+    },
+    {
+      "path": "config/ultrahand/lang/zh-tw.json",
+      "bytes": 6876,
+      "sha256": "631a6a70b5c30d0fb1b8b1cd3d455a90bc0afffc8286518b7993314fbef1ec96"
+    },
+    {
+      "path": "config/ultrahand/overlays.ini",
+      "bytes": 459,
+      "sha256": "e33b012faf9ca2239cbf947fc9dc11872f74abe056f40917228764d792df5a94"
+    },
+    {
+      "path": "exosphere.ini",
+      "bytes": 234,
+      "sha256": "9d76373593aaedc5e0df037b67d917be38413d878ab035d36c3f538fc4d66fee"
+    },
+    {
+      "path": "hbmenu.nro",
+      "bytes": 2455539,
+      "sha256": "6cf6d130515723ebe0041c2479420caf9726895087439ff7b2e528c2ed39c100"
+    },
+    {
+      "path": "hbmenu.nsp",
+      "bytes": 363736,
+      "sha256": "69cb4fd666a800a4e56c9239378d663966e220ee750146064f0a5cccae226d42"
+    },
+    {
+      "path": "payload.bin",
+      "bytes": 110208,
+      "sha256": "09752abd207803708add6e22151e94b71ffbaaff769d1bad759584b76ef6f05e"
+    },
+    {
+      "path": "sdloader.enc",
+      "bytes": 29936,
+      "sha256": "d1a39c148738639daed186f7b7c588d0b62a8781cfd00ac0a44696c82d74e4ed"
+    },
+    {
+      "path": "switch/.overlays/EdiZon.ovl",
+      "bytes": 952517,
+      "sha256": "cde41c674265c5c24b8adb98dbc46fb96e00115d4984fde33a569b70c065f459"
+    },
+    {
+      "path": "switch/.overlays/StatusMonitor.ovl",
+      "bytes": 1015864,
+      "sha256": "84b4f0546f9dd77894abef946544b16daf89e02933136fd78473029342c3b4d9"
+    },
+    {
+      "path": "switch/.overlays/lang/EdiZon/zh-Hans.json",
+      "bytes": 448,
+      "sha256": "bf8e450440329c74d43f5772104ff17e2fc992e8154a999ac20839bfdc2d789c"
+    },
+    {
+      "path": "switch/.overlays/lang/EdiZon/zh-Hant.json",
+      "bytes": 458,
+      "sha256": "dbcd07debf39dbfb8dabbf974f04a8770bd1d4c7c94431d22b8646aa0c4349b1"
+    },
+    {
+      "path": "switch/.overlays/lang/StatusMonitor/zh-Hans.json",
+      "bytes": 5841,
+      "sha256": "33ce48eeab76dfbac667a6eeec520bdf8a3377b3229e4727c40b2634b7d2af1f"
+    },
+    {
+      "path": "switch/.overlays/lang/StatusMonitor/zh-Hant.json",
+      "bytes": 5841,
+      "sha256": "1be1b5784631cff10a8d654913a44739142187e0e4687d4e2318c4cebe7f2224"
+    },
+    {
+      "path": "switch/.overlays/lang/ovl-sysmodules/zh-Hans.json",
+      "bytes": 3664,
+      "sha256": "a1cde1722bfc686a9e70ce483fb5d6e74dfbaa2cf760900f8bbaed8d12e4d3f3"
+    },
+    {
+      "path": "switch/.overlays/lang/ovl-sysmodules/zh-Hant.json",
+      "bytes": 3664,
+      "sha256": "e826df59b80383b57b0a8e5187f9e5a5e90d0e131f089d3ea87dd6e9772bcd79"
+    },
+    {
+      "path": "switch/.overlays/lang/sys-clk/zh-Hans.json",
+      "bytes": 3393,
+      "sha256": "1e0041b90eef12952f5b15d04e4c09551cdb1c893cb6bcea89bb886ccc9f9ca8"
+    },
+    {
+      "path": "switch/.overlays/lang/sys-clk/zh-Hant.json",
+      "bytes": 3394,
+      "sha256": "9ea2b302b63365f859b96b11e9c7e24b9aedd6ad6adc05246ae376236db66603"
+    },
+    {
+      "path": "switch/.overlays/ovl-sysmodules.ovl",
+      "bytes": 970808,
+      "sha256": "94ab9e7312c318e71ab543d979be2877729a03357ab1260f49ee4974284c52c7"
+    },
+    {
+      "path": "switch/.overlays/ovlmenu.ovl",
+      "bytes": 1278012,
+      "sha256": "9b7ecd0173b2c46e4f6bb9d1812ce05307261fc7985a09746026b42b276eba18"
+    },
+    {
+      "path": "switch/.overlays/sys-clk.ovl",
+      "bytes": 979000,
+      "sha256": "d25250d7bf86cc5907b29da60542b6aa5cb9eb8dc6bd618cd3a0622829171a5f"
+    },
+    {
+      "path": "switch/.packages/package.ini",
+      "bytes": 232,
+      "sha256": "c6725ea5526563594af12fc2dbb607f2b741dbaedcef7fe1ce3843ec21ad54e6"
+    },
+    {
+      "path": "switch/Awoo-Installer/Awoo-Installer.nro",
+      "bytes": 12907649,
+      "sha256": "d282b1095321115a9f12cb89d1004c19c47799972a28c9c7fa368feffb601a78"
+    },
+    {
+      "path": "switch/Checkpoint/Checkpoint.nro",
+      "bytes": 5047633,
+      "sha256": "e2c76687df29f845f11a61a62a25327703b22250d4a78dbdbed6dd1401253e48"
+    },
+    {
+      "path": "switch/DBI/DBI.nro",
+      "bytes": 16640438,
+      "sha256": "63640103c2044c6251ec29f06cd8fabe0ada8d05f5b21eed2399768583459e60"
+    },
+    {
+      "path": "switch/DBI/dbi.config",
+      "bytes": 2431,
+      "sha256": "8e71490bba624d35f07da35da63165b43bcc720701a3af7ca1f59f8644a7bcb4"
+    },
+    {
+      "path": "switch/DBI/translation.bin",
+      "bytes": 811612,
+      "sha256": "fc449d83a027a9b496320d5420c8b459daa4f47508412256c0df9a90047adb93"
+    },
+    {
+      "path": "switch/DBI/translation.bin.cn",
+      "bytes": 794176,
+      "sha256": "c16c2096c0bc5561992387a9c40aa96d7a15a7adc4db2b90d95974905ac26c2b"
+    },
+    {
+      "path": "switch/DeepSea-Toolbox/DeepSeaToolbox.nro",
+      "bytes": 2719731,
+      "sha256": "0dd25e46dfa2cd49ea89d045f5b85c1cec4c6b35417a9126ea2edb8c10a5bedf"
+    },
+    {
+      "path": "switch/EdiZon/EdiZon.nro",
+      "bytes": 14826066,
+      "sha256": "0e51a088a6b826bd3ef1b0e5ee52e673ca9f70f3eb61d74ee074ebf7821b7bc5"
+    },
+    {
+      "path": "switch/N-Xplorer.nro",
+      "bytes": 10018246,
+      "sha256": "6514c5215a6db067044fa16a5e0ff4cd77519b72c10097ed642836aa667941b0"
+    },
+    {
+      "path": "switch/NX-Activity-Log/NX-Activity-Log.nro",
+      "bytes": 10923193,
+      "sha256": "c04a84744535fc483222593771a8781cef564314a1766e754821b0c69919eea4"
+    },
+    {
+      "path": "switch/daybreak.nro",
+      "bytes": 454275,
+      "sha256": "cf8a958baffbd9a306d29b2cba62133c25bd5ab7fcedf841523c7590f90593ba"
+    },
+    {
+      "path": "switch/goldleaf/Goldleaf.nro",
+      "bytes": 11875762,
+      "sha256": "4f05301db5d090d79bf04503af7e1eca587a60709c626e7e67f9e57b2fcc0017"
+    },
+    {
+      "path": "switch/haze.nro",
+      "bytes": 344799,
+      "sha256": "b3b9943874f448ecc5b129cde87418b65ea5f5590eeb63be31cec89589b48f04"
+    },
+    {
+      "path": "switch/jksv/JKSV.nro",
+      "bytes": 10130471,
+      "sha256": "a2b7f6372a4b81f3c3194aa6f96f2824bdea853b9a8ebf8c4a008d0d865a0cbf"
+    },
+    {
+      "path": "switch/linkalho/linkalho.nro",
+      "bytes": 7737014,
+      "sha256": "5e2697cc10b463152b8363678d32d6eec48ff6faa3e3d61041de566a53ce81c0"
+    },
+    {
+      "path": "switch/reboot_to_payload.nro",
+      "bytes": 260412,
+      "sha256": "9a51ae71bffa49d36930f6b0b04669fc5ebda8a66180d71310066e77fc035bdf"
+    },
+    {
+      "path": "switch/sphaira/sphaira.nro",
+      "bytes": 5531909,
+      "sha256": "f51639eadbdad826eae7e16dce0a92a22d26e2ee02267a8644756a128fa1464f"
+    },
+    {
+      "path": "switch/switch-time.nro",
+      "bytes": 295149,
+      "sha256": "e8f19340411af6d2b6808d0ce534b346599b785132490e9f09a5f7e6eeb0a742"
+    },
+    {
+      "path": "switch/sys-clk-manager.nro",
+      "bytes": 8275961,
+      "sha256": "de147fc5ed9300b4f8b1c5b39ecc6341971adad26202689e851a99bfedbb1c62"
+    },
+    {
+      "path": "switch/tencent-switcher-gui.nro",
+      "bytes": 7574713,
+      "sha256": "ff86f03234d5db22ea06f74b5a3a36cbbd6897c3b26b871143ff9eed82bf5ff0"
+    },
+    {
+      "path": "switch/tinwoo/tinwoo.nro",
+      "bytes": 13748265,
+      "sha256": "cb7c2fa2b2c538fcaf53c56e35e32b3341bcd406449c1f050ec80987a80b640f"
+    },
+    {
+      "path": "switch/wiliwili/wiliwili.nro",
+      "bytes": 39634391,
+      "sha256": "45833beb89fcda3ff1a863ea6b42ed9e72aab1dfc2cd30d004f115109bee9373"
+    },
+    {
+      "path": "warmboot_mariko/wb_13.bin",
+      "bytes": 3616,
+      "sha256": "e5fbc74ee2e56ca9f311070b3046c4f4323358ca40b05d64dca8eb112baf3ae6"
+    },
+    {
+      "path": "warmboot_mariko/wb_14.bin",
+      "bytes": 3616,
+      "sha256": "3e183684787f92042cb67cbbdd56d9d0ee9872e1df4bf4e529b6e92ca16fa1be"
+    },
+    {
+      "path": "warmboot_mariko/wb_15.bin",
+      "bytes": 3616,
+      "sha256": "7500f64f6765aff46839b713339215b4d31c9ea576a9ba4e7ae6ff6c9a629c02"
+    },
+    {
+      "path": "warmboot_mariko/wb_16.bin",
+      "bytes": 3616,
+      "sha256": "2168cff3d42ebd193cda2a3408ce1e4f6ce8e225df1f7eb9cf30767b33289500"
+    },
+    {
+      "path": "warmboot_mariko/wb_17.bin",
+      "bytes": 3616,
+      "sha256": "2079b691a696ed1dc6366a7dc1594fd8f9e9b826796b44274658d36d62fb719b"
+    },
+    {
+      "path": "warmboot_mariko/wb_18.bin",
+      "bytes": 3616,
+      "sha256": "22c9907a1aa0d6006e01fb2424dbd51b7a446863eba1d79bbe7edb85235c5b39"
+    },
+    {
+      "path": "warmboot_mariko/wb_19.bin",
+      "bytes": 3616,
+      "sha256": "e7e4b61c1d91155ce0440cd4ee3749cf39c76aa3e59eea579d7fae0dd40e66ea"
+    }
+  ]
+}
