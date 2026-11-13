@@ -216,6 +216,36 @@ def main():
         finally:
             print("::endgroup::",flush=True)
     configs = apply_configs()
+    # The source sys-clk archive uses a subfolder, while rumla places the
+    # same upstream binary at switch/sys-clk-manager.nro.
+    manager = SD / "switch/sys-clk/sys-clk.nro"
+    if manager.exists():
+        write("switch/sys-clk-manager.nro", manager.read_bytes(), "sysclk-manager-mapped")
+    # rumla selects Hekate's update.bin as Atmosphere's reboot payload.
+    update = SD / "bootloader/update.bin"
+    if update.exists():
+        write("atmosphere/reboot_payload.bin", update.read_bytes(), "hekate-reboot-payload")
+    # Keep the package's SD tree close to the author's hand-selected baseline.
+    # Upstream vendors sometimes include extra themes, debug flags or configs.
+    known_paths = {f["path"] for f in REFERENCE["files"]}
+    removed = []
+    for f in sorted(SD.rglob("*")):
+        if f.is_file() and f.relative_to(SD).as_posix() not in known_paths:
+            removed.append(f.relative_to(SD).as_posix())
+            f.unlink()
+    print("Pruned non-baseline vendor extras:", len(removed),flush=True)
+    # The author supplies hekate-specific signature patches in patches.ini.
+    # Without a verified independent patch source, remove the unavailable
+    # kip1patch directive instead of leaving a broken reference.
+    if not (SD / "bootloader/patches.ini").exists():
+        for name in ("bootloader/hekate_ipl.ini","bootloader/ini/more.ini"):
+            p=SD / name
+            if p.exists():
+                raw=p.read_bytes()
+                filtered=b"\n".join(line for line in raw.split(b"\n")
+                                     if not line.strip().startswith(b"kip1patch="))
+                p.write_bytes(filtered)
+                WRITES[name]="reviewed-boot-config-no-missing-ips"
     files = inventory()
     stats = report(files,configs)
     (DIST / "SOURCE_LOCK.json").write_text(
