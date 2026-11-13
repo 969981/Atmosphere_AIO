@@ -1,0 +1,15 @@
+{
+  "source_repository": "rumla3434/Atmosphere-Stable",
+  "source_release_tag": "1.12.2",
+  "source_release_name": "AMS1.12.2-Stable-v261112",
+  "source_release_url": "https://github.com/rumla3434/Atmosphere-Stable/releases/tag/1.12.2",
+  "source_release_id": 441179128,
+  "source_release_updated_at": "2026-11-12T03:38:11Z",
+  "source_asset_id": 737868842,
+  "source_asset_name": "AMS1.12.2-Stable-v261112.7z",
+  "source_asset_url": "https://github.com/rumla3434/Atmosphere-Stable/releases/download/1.12.2/AMS1.12.2-Stable-v261112.7z",
+  "source_asset_size": 42586651,
+  "source_asset_updated_at": "2026-11-12T03:15:39Z",
+  "source_asset_sha256": "55a9a927b1552584c603ca4756e40fc59e1c7d20d4a7635a4acf795e89ac1338",
+  "mirror_release_tag": "rumla-stable-1.12.2-55a9a927b155"
+}
