@@ -1,0 +1,60 @@
+name: Rumla rebuild - research original bundle
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/rumla-rebuild-audit.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rumla-rebuild-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: upstream/rumla-rebuild
+          fetch-depth: 0
+      - name: Install static archive inspector
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq p7zip-full
+      - name: Download ORIGINAL rumla package for research only
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p input/reference input/extracted reference
+          gh api repos/rumla3434/Atmosphere-Stable/releases/latest > input/release.json
+          TAG="$(jq -r .tag_name input/release.json)"
+          ASSET="$(jq -r '[.assets[] | select(.name | endswith(".7z"))] | if length == 1 then .[0].name else error("Ambiguous .7z") end' input/release.json)"
+          SHA="$(jq -r --arg n "$ASSET" '.assets[]|select(.name==$n)|.digest|ltrimstr("sha256:")' input/release.json)"
+          [[ "$SHA" =~ ^[0-9a-f]{64}$ ]]
+          gh release download "$TAG" --repo rumla3434/Atmosphere-Stable --pattern "$ASSET" --dir input/reference
+          echo "$SHA  input/reference/$ASSET" | sha256sum -c -
+          7z t "input/reference/$ASSET" > /dev/null
+          7z x -y "input/reference/$ASSET" -oinput/extracted > /dev/null
+          jq --arg asset "$ASSET" --arg sha "$SHA" '{tag_name,html_url,body,original_asset:$asset,original_sha256:$sha,updated_at}' input/release.json > input/metadata.json
+          python3 scripts/audit_reference.py input/extracted reference input/metadata.json
+          jq -r .body input/metadata.json > reference/UPSTREAM_RELEASE_NOTES.md
+          cp input/metadata.json reference/release-metadata.json
+      - name: Record investigation results on independent branch
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- reference/
+          if ! git diff --cached --quiet; then
+            git commit -m 'audit(rumla): analyze latest released 7z layout, hashes and configs'
+            git push origin HEAD:upstream/rumla-rebuild
+          fi
+      - name: Show summary
+        run: |
+          head -80 reference/inventory.md >> "$GITHUB_STEP_SUMMARY"
+          echo "Reference SHA: $(jq -r .original_7z_sha256 reference/release-metadata.json)"
