@@ -1,0 +1,116 @@
+name: Verify Rumla original vs AIO mirror (binary parity)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/rumla-compare.yml
+  schedule:
+    # Daily independent end-to-end verification.
+    - cron: "47 3 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rumla-compare
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Download both releases, compare every byte
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Install 7z verifier
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq p7zip-full
+
+      - name: Get independent latest release metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p original mirror results
+          gh api repos/rumla3434/Atmosphere-Stable/releases/latest > results/original-release.json
+          tag="$(jq -r '.tag_name' results/original-release.json)"
+          asset="$(jq -r '[.assets[] | select(.name|endswith(".7z"))] | if length == 1 then .[0].name else error("Expected exactly one 7z") end' results/original-release.json)"
+          digest="$(jq -r --arg asset "$asset" '.assets[] | select(.name==$asset) | .digest' results/original-release.json)"
+          [[ "$digest" =~ ^sha256:[0-9a-fA-F]{64}$ ]] || { echo "Missing SHA256"; exit 1; }
+          mirror_tag="rumla-stable-${tag}-${digest:7:12}"
+          gh api "repos/969981/Atmosphere_AIO/releases/tags/${mirror_tag}" > results/mirror-release.json
+          mirrored_digest="$(jq -r --arg asset "$asset" '.assets[] | select(.name==$asset) | .digest' results/mirror-release.json)"
+          [[ "$digest" == "$mirrored_digest" ]] || { echo "Release metadata digest mismatch"; exit 1; }
+          echo "SRC_TAG=$tag" >> "$GITHUB_ENV"
+          echo "MIRROR_TAG=$mirror_tag" >> "$GITHUB_ENV"
+          echo "ASSET_NAME=$asset" >> "$GITHUB_ENV"
+          echo "EXPECTED_SHA=${digest#sha256:}" >> "$GITHUB_ENV"
+          echo "Metadata: $tag / $mirror_tag / $asset"
+
+      - name: Independently download both release archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release download "$SRC_TAG" \
+            --repo rumla3434/Atmosphere-Stable \
+            --pattern "$ASSET_NAME" --dir original
+          gh release download "$MIRROR_TAG" \
+            --repo 969981/Atmosphere_AIO \
+            --pattern "$ASSET_NAME" --dir mirror
+          test -s "original/$ASSET_NAME"
+          test -s "mirror/$ASSET_NAME"
+
+      - name: Compare actual archive bytes and file lists
+        shell: bash
+        run: |
+          set -euo pipefail
+          src="original/$ASSET_NAME"
+          dst="mirror/$ASSET_NAME"
+          original_sha="$(sha256sum "$src" | awk '{print $1}')"
+          mirror_sha="$(sha256sum "$dst" | awk '{print $1}')"
+          [[ "$original_sha" == "$EXPECTED_SHA" ]] || { echo "Original SHA differs from official GitHub asset digest"; exit 1; }
+          [[ "$mirror_sha" == "$EXPECTED_SHA" ]] || { echo "Mirror SHA differs from official GitHub asset digest"; exit 1; }
+          cmp -- "$src" "$dst" || { echo "Actual binary mismatch"; exit 1; }
+          7z t "$src" > results/original-7z-integrity.txt
+          7z t "$dst" > results/mirror-7z-integrity.txt
+          7z l -slt "$src" > results/original-7z-list.txt
+          7z l -slt "$dst" > results/mirror-7z-list.txt
+          # Listing header contains the downloaded archive's path;
+          # compare file records from the first separator onward instead.
+          sed -n '/^----------/,$p' results/original-7z-list.txt > results/original-7z-entries.txt
+          sed -n '/^----------/,$p' results/mirror-7z-list.txt > results/mirror-7z-entries.txt
+          diff -u results/original-7z-entries.txt results/mirror-7z-entries.txt > results/archive-entry-diff.txt
+          sz="$(stat -c %s "$src")"
+          items="$(grep -c '^Path = ' results/original-7z-entries.txt)"
+          cat > results/VERIFICATION.md <<EOF
+          # rumla release original vs Atmosphere_AIO mirror
+
+          - Original: https://github.com/rumla3434/Atmosphere-Stable/releases/tag/$SRC_TAG
+          - Mirror: https://github.com/969981/Atmosphere_AIO/releases/tag/$MIRROR_TAG
+          - File: \`$ASSET_NAME\`
+          - Size in both files: **$sz bytes**
+          - SHA256 (both, independently computed): \`$original_sha\`
+          - Official original GitHub SHA256: \`$EXPECTED_SHA\`
+          - Binary comparison: **PASS (cmp every byte)**
+          - Original 7z integrity: **PASS**
+          - Mirror 7z integrity: **PASS**
+          - 7z archive entry metadata comparison: **PASS**
+          - Archive file/path entry count: **$items**
+          - Verdict: **the two distributed .7z files are byte-for-byte identical**.
+
+          The mirror release includes additional audit files outside the .7z; these are not part of the original package.
+          EOF
+          cat results/VERIFICATION.md >> "$GITHUB_STEP_SUMMARY"
+          cat results/VERIFICATION.md
+
+      - name: Upload comparison evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rumla-binary-comparison
+          path: results/
+          if-no-files-found: warn
+          retention-days: 30
