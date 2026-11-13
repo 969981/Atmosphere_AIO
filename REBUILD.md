@@ -4,7 +4,7 @@
 
 ## What is and is NOT built here
 
-The build retrieves **33 pinned assets directly from the corresponding component authors' GitHub Releases**, layers their SD distributions, applies a small number of version-reviewed text config templates, and builds a fresh .7z.
+The build retrieves **34 pinned assets directly from the corresponding component authors' GitHub Releases**, layers their SD distributions, applies a small number of version-reviewed text config templates, and builds a fresh .7z.
 
 **It never downloads, extracts or copies the author's rumla Stable .7z as part of the rebuild.**
 
