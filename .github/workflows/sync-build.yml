@@ -1,0 +1,274 @@
+name: Sync upstream workflows and build AIO
+
+on:
+  schedule:
+    # Four metadata sync checks per day (UTC).
+    - cron: "17 1,7,13,19 * * *"
+    # Daily re-build even if upstream git SHA is unchanged (component releases may change).
+    - cron: "41 2 * * *"
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Build target (all or one upstream)"
+        required: true
+        type: choice
+        default: all
+        options:
+          - all
+          - switchscript
+          - atmosphere-for-switch
+          - ascent
+          - vanillatmosphere
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/sync-build.yml
+
+concurrency:
+  group: atmosphere-aio-sync-build
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Mirror upstream workflow revisions
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      changed_projects: ${{ steps.mirror.outputs.changed_projects }}
+    steps:
+      - name: Checkout default branch (writes only trusted mirror data)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Fetch upstream workflows and update four tracking branches
+        id: mirror
+        shell: bash
+        env:
+          TARGET: ${{ inputs.target || 'all' }}
+          API_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          changed=","
+          while IFS='|' read -r project branch repo upstream_ref; do
+            [[ -n "$project" ]] || continue
+            if [[ "$TARGET" != "all" && "$TARGET" != "$project" ]]; then
+              continue
+            fi
+            echo "::group::Sync $project"
+            clone_dir="${RUNNER_TEMP}/aio-${project}"
+            git clone -q --depth=1 --branch "$upstream_ref" "https://github.com/${repo}.git" "$clone_dir"
+            upstream_sha="$(git -C "$clone_dir" rev-parse HEAD)"
+            latest_tag="$(curl -fsSL --retry 3 -H "Authorization: Bearer ${API_TOKEN}" \
+              "https://api.github.com/repos/${repo}/releases/latest" | jq -r '.tag_name // "none"' || true)"
+            latest_tag="${latest_tag:-none}"
+            git fetch -q origin "+refs/heads/${branch}:refs/remotes/origin/${branch}"
+            git switch -q -C "$branch" "refs/remotes/origin/$branch"
+            mkdir -p upstream-workflows
+            rsync -a --delete "$clone_dir/.github/workflows/" upstream-workflows/
+            printf '%s\n' "$upstream_sha" > upstream-revision.txt
+            printf '%s\n' "$latest_tag" > upstream-release.txt
+            printf '%s\n' "$repo" > upstream-origin.txt
+            git add -A -- upstream-workflows upstream-revision.txt upstream-release.txt upstream-origin.txt
+            if ! git diff --cached --quiet; then
+              git commit -m "sync($project): upstream ${upstream_sha:0:12} release $latest_tag"
+              git push origin "HEAD:refs/heads/$branch"
+              changed="${changed}${project},"
+              echo "Upstream revision / workflow / release changed: $project"
+            else
+              echo "No changes: $project"
+            fi
+            git switch -q main
+            echo "::endgroup::"
+          done <<'TARGETS'
+          switchscript|upstream/switchscript|huangqian8/SwitchScript|main
+          atmosphere-for-switch|upstream/atmosphere-for-switch|gzk47/Atmosphere-for-Switch|main
+          ascent|upstream/ascent|exploitz86/Ascent|master
+          vanillatmosphere|upstream/vanillatmosphere|mlemiam/Vanillatmosphere|main
+          TARGETS
+          echo "changed_projects=$changed" >> "$GITHUB_OUTPUT"
+          echo "Changed projects: $changed"
+
+  build:
+    name: Build / ${{ matrix.project }}
+    needs: sync
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - project: switchscript
+            branch: upstream/switchscript
+            repo: huangqian8/SwitchScript
+          - project: atmosphere-for-switch
+            branch: upstream/atmosphere-for-switch
+            repo: gzk47/Atmosphere-for-Switch
+          - project: ascent
+            branch: upstream/ascent
+            repo: exploitz86/Ascent
+          - project: vanillatmosphere
+            branch: upstream/vanillatmosphere
+            repo: mlemiam/Vanillatmosphere
+    steps:
+      - name: Decide whether build is needed
+        id: select
+        shell: bash
+        env:
+          TARGET: ${{ inputs.target || 'all' }}
+          PROJECT: ${{ matrix.project }}
+          CHANGED: ${{ needs.sync.outputs.changed_projects }}
+          EVENT_NAME: ${{ github.event_name }}
+          SCHEDULE_EXPR: ${{ github.event.schedule }}
+        run: |
+          enabled=false
+          if [[ "$TARGET" == "all" || "$TARGET" == "$PROJECT" ]]; then
+            if [[ "$EVENT_NAME" != "schedule" || "$SCHEDULE_EXPR" == "41 2 * * *" || "$CHANGED" == *",$PROJECT,"* ]]; then
+              enabled=true
+            fi
+          fi
+          echo "enabled=$enabled" >> "$GITHUB_OUTPUT"
+          echo "Build ${PROJECT}: ${enabled}"
+
+      - name: Checkout tracking branch (no stored write credentials)
+        if: steps.select.outputs.enabled == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+          persist-credentials: false
+
+      - name: Checkout exactly the recorded upstream SHA
+        if: steps.select.outputs.enabled == 'true'
+        shell: bash
+        env:
+          UPSTREAM_REPO: ${{ matrix.repo }}
+        run: |
+          set -euo pipefail
+          revision="$(cat upstream-revision.txt)"
+          [[ "$revision" =~ ^[0-9a-f]{40}$ ]]
+          git init -q source
+          git -C source remote add origin "https://github.com/${UPSTREAM_REPO}.git"
+          git -C source fetch -q --depth=1 origin "$revision"
+          git -C source checkout -q --detach FETCH_HEAD
+          test "$(git -C source rev-parse HEAD)" = "$revision"
+
+      - name: Install build dependencies
+        if: steps.select.outputs.enabled == 'true'
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq jq zip unzip p7zip-full
+
+      - name: Set up Python
+        if: steps.select.outputs.enabled == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Execute upstream build (read-only repository token)
+        if: steps.select.outputs.enabled == 'true'
+        shell: bash
+        env:
+          AIO_PROJECT: ${{ matrix.project }}
+          GITHUB_TOKEN: ${{ github.token }}
+          API_TOKEN: ${{ github.token }}
+          TZ: Asia/Shanghai
+        run: |
+          bash ci/build.sh
+          {
+            echo "Project: ${AIO_PROJECT}"
+            echo "Upstream: ${{ matrix.repo }}"
+            echo "Pinned upstream revision: $(cat upstream-revision.txt)"
+            echo "Upstream latest release at sync: $(cat upstream-release.txt)"
+            echo "Workflow snapshot: upstream-workflows/"
+            echo "Build: ${GITHUB_RUN_ID} / ${GITHUB_RUN_ATTEMPT}"
+          } > dist/PROVENANCE.txt
+
+      - name: Upload inspected build outputs
+        if: steps.select.outputs.enabled == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: aio-${{ matrix.project }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14
+
+  publish:
+    name: Release / ${{ matrix.project }}
+    if: ${{ always() && needs.sync.result == 'success' }}
+    needs:
+      - sync
+      - build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - project: switchscript
+            branch: upstream/switchscript
+            repo: huangqian8/SwitchScript
+          - project: atmosphere-for-switch
+            branch: upstream/atmosphere-for-switch
+            repo: gzk47/Atmosphere-for-Switch
+          - project: ascent
+            branch: upstream/ascent
+            repo: exploitz86/Ascent
+          - project: vanillatmosphere
+            branch: upstream/vanillatmosphere
+            repo: mlemiam/Vanillatmosphere
+    steps:
+      - name: Decide whether an artifact was expected
+        id: select
+        env:
+          TARGET: ${{ inputs.target || 'all' }}
+          PROJECT: ${{ matrix.project }}
+          CHANGED: ${{ needs.sync.outputs.changed_projects }}
+          EVENT_NAME: ${{ github.event_name }}
+          SCHEDULE_EXPR: ${{ github.event.schedule }}
+        run: |
+          enabled=false
+          if [[ "$TARGET" == "all" || "$TARGET" == "$PROJECT" ]]; then
+            if [[ "$EVENT_NAME" != "schedule" || "$SCHEDULE_EXPR" == "41 2 * * *" || "$CHANGED" == *",$PROJECT,"* ]]; then
+              enabled=true
+            fi
+          fi
+          echo "enabled=$enabled" >> "$GITHUB_OUTPUT"
+
+      - name: Download artifacts (no upstream code is executed here)
+        if: steps.select.outputs.enabled == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: aio-${{ matrix.project }}
+          path: release/
+
+      - name: Set daily release tag
+        if: steps.select.outputs.enabled == 'true'
+        shell: bash
+        run: echo "RELEASE_DATE=$(date -u +%Y%m%d)" >> "$GITHUB_ENV"
+
+      - name: Publish project-scoped release
+        if: steps.select.outputs.enabled == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ matrix.project }}-${{ env.RELEASE_DATE }}
+          target_commitish: ${{ matrix.branch }}
+          name: "${{ matrix.project }} automated build ${{ env.RELEASE_DATE }}"
+          body: |
+            Automated build of ${{ matrix.repo }}.
+            The exact source SHA, upstream release tag, and build run are recorded in PROVENANCE.txt.
+            Workflows are mirrored under the project branch's upstream-workflows/ folder.
+            Independent third-party bundle; review components and risks before installation.
+          draft: false
+          prerelease: false
+          files: release/*
+          fail_on_unmatched_files: true
+          overwrite_files: true
