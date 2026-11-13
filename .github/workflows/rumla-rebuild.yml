@@ -1,0 +1,108 @@
+name: Rumla Rebuild - independent source assembly
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Publish experimental pre-release after successful source-only build"
+        required: true
+        type: boolean
+        default: true
+  schedule:
+    # Once daily, monitor source releases, test locked independent build
+    - cron: "23 4 * * *"
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/rumla-rebuild.yml
+
+concurrency:
+  group: rumla-rebuild-independent
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Assemble pinned component sources and compare with rumla
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout independent rebuild branch (never original mirror branch)
+        uses: actions/checkout@v4
+        with:
+          ref: upstream/rumla-rebuild
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install archive builder
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq p7zip-full
+      - name: Check pinned component versions against sources
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/check_sources.py
+      - name: Assemble packages ONLY from component authors' Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/build_rebuild.py
+      - name: Verify generated 7z and SHA256
+        run: |
+          set -euo pipefail
+          cd dist
+          sha256sum -c SHA256SUMS
+          7z t *.7z
+      - name: Upload experimental package and full parity reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: rumla-rebuild-experimental
+          path: dist/
+          retention-days: 30
+          if-no-files-found: error
+
+  publish:
+    name: Publish experimental source-built package (clearly NOT rumla original)
+    needs: build
+    # Scheduled runs also publish, but only if build and SHA verification succeeded.
+    if: ${{ needs.build.result == 'success' && (github.event_name != 'workflow_dispatch' || inputs.publish) }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: rumla-rebuild-experimental
+          path: release/
+      - name: Check archive and create namespaced prerelease
+        run: |
+          set -euo pipefail
+          cd release
+          sha256sum -c SHA256SUMS
+          echo "DATE_TAG=$(date -u +%Y%m%d)" >> "$GITHUB_ENV"
+      - name: Release reconstructed packages and analysis
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: rumla-rebuild-1.12.2-${{ env.DATE_TAG }}
+          target_commitish: upstream/rumla-rebuild
+          name: "EXPERIMENTAL Rumla Rebuild (independent components) — ${{ env.DATE_TAG }}"
+          draft: false
+          prerelease: true
+          make_latest: false
+          overwrite_files: true
+          fail_on_unmatched_files: true
+          body: |
+            EXPERIMENTAL rebuild assembled independently from component-author Releases.
+            This IS NOT the original rumla Stable .7z and has NOT passed Nintendo Switch hardware tests.
+            Review PARITY.md for missing, changed, and identical files. Avoid overwriting an existing SD card.
+            GitHub workflow did not download or copy the original rumla .7z.
+            See SOURCE_LOCK.json and BUILD_REPORT.json for full component provenance.
+          files: |
+            release/*.7z
+            release/PARITY.md
+            release/BUILD_REPORT.json
+            release/SOURCE_LOCK.json
+            release/REBUILD_MANIFEST.json
+            release/SHA256SUMS
+            release/UPSTREAM_VERSION_CHECK.json
+            release/UPSTREAM_VERSION_CHECK.md
