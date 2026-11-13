@@ -1,0 +1,342 @@
+[
+  {
+    "id": "atmosphere",
+    "repo": "Atmosphere-NX/Atmosphere",
+    "tag": "1.12.2",
+    "asset": "atmosphere-1.12.2-master-4e3f37038+hbl-2.4.5+hbmenu-3.6.1.zip",
+    "sha256": "57d0019ff430af4b712899ff58fd341da8d9ed38159c51ade8e29fd42ecb2dda",
+    "size": 4772937,
+    "integrated": 13,
+    "result": "success"
+  },
+  {
+    "id": "fusee",
+    "repo": "Atmosphere-NX/Atmosphere",
+    "tag": "1.12.2",
+    "asset": "fusee.bin",
+    "sha256": "1ef8e019fcd6e6026f88075e8dc391f461614d915f4322af776c9903d42ff5ca",
+    "size": 112160,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "hekate",
+    "repo": "CTCaer/hekate",
+    "tag": "v6.5.5",
+    "asset": "hekate_ctcaer_6.5.5_Nyx_1.9.5.zip",
+    "sha256": "e3c6613fc9e099d00683063855812a6059247da6e9d75f2caa203f9e78e5df56",
+    "size": 895989,
+    "integrated": 15,
+    "result": "success"
+  },
+  {
+    "id": "hekate_payload",
+    "repo": "CTCaer/hekate",
+    "tag": "v6.5.5",
+    "asset": "hekate_ctcaer_6.5.5.bin",
+    "sha256": "09752abd207803708add6e22151e94b71ffbaaff769d1bad759584b76ef6f05e",
+    "size": 110208,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "nyx_zh",
+    "repo": "easyworld/hekate",
+    "tag": "v6.5.5",
+    "asset": "hekate_ctcaer_6.5.5_Nyx_1.9.5_sc.zip",
+    "sha256": "2d063a75d002422630e0c94a7a625fe188cff22bfcc76ad6be1ed79b7651463d",
+    "size": 1140778,
+    "integrated": 15,
+    "result": "success"
+  },
+  {
+    "id": "tesla_loader",
+    "repo": "zdm65477730/nx-ovlloader",
+    "tag": "1.0.7",
+    "asset": "nx-ovlloader.zip",
+    "sha256": "640a1a15cb8ed824908187380168d6a0e16dc7c26785465edef441c30500fb35",
+    "size": 20502,
+    "integrated": 4,
+    "result": "success"
+  },
+  {
+    "id": "ultrahand",
+    "repo": "zdm65477730/Ultrahand-Overlay",
+    "tag": "2.5.4",
+    "asset": "Ultrahand.zip",
+    "sha256": "656380d3ff4f3c41f8402c90b7fc3cfd91cf7e4b9e90205516f4b2d450a5fe52",
+    "size": 725784,
+    "integrated": 22,
+    "result": "success"
+  },
+  {
+    "id": "ovl_sysmodules",
+    "repo": "zdm65477730/ovl-sysmodules",
+    "tag": "v1.3.2",
+    "asset": "ovl-sysmodules.zip",
+    "sha256": "66f352f29c731c3736c4ef2d9847d7a69cc106a04d71123d9f0ad0619dde6297",
+    "size": 405586,
+    "integrated": 4,
+    "result": "success"
+  },
+  {
+    "id": "edizon_overlay",
+    "repo": "zdm65477730/EdiZon-Overlay",
+    "tag": "v1.0.8",
+    "asset": "EdiZon.zip",
+    "sha256": "2a0db93c174fcfdb1733fd2a3d727b5d9cfc661c02cb559b4af1cea2df270e22",
+    "size": 3839473,
+    "integrated": 4,
+    "result": "success"
+  },
+  {
+    "id": "sysclk",
+    "repo": "zdm65477730/sys-clk",
+    "tag": "v1.0.2",
+    "asset": "sys-clk.zip",
+    "sha256": "9edbd68bd62ff623dd552c278520a66df0451fe24c63a9b76de8869ab147ec76",
+    "size": 3945519,
+    "integrated": 9,
+    "result": "success"
+  },
+  {
+    "id": "statusmonitor",
+    "repo": "zdm65477730/Status-Monitor-Overlay",
+    "tag": "v1.4.1",
+    "asset": "StatusMonitor.zip",
+    "sha256": "aca090daa305168bcb8592b0506c37456de66feab71fcc972ef2aaefdad2dff5",
+    "size": 427056,
+    "integrated": 4,
+    "result": "success"
+  },
+  {
+    "id": "awoo",
+    "repo": "Huntereb/Awoo-Installer",
+    "tag": "1.3.6",
+    "asset": "Awoo-Installer.zip",
+    "sha256": "b40c139d1a7eb30bdd2c8b6fe1884f2691dc51a7b73c7c1cbe594bf898f583a3",
+    "size": 6307394,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "checkpoint",
+    "repo": "BernardoGiordano/Checkpoint",
+    "tag": "v5.3.0",
+    "asset": "Checkpoint.nro",
+    "sha256": "e2c76687df29f845f11a61a62a25327703b22250d4a78dbdbed6dd1401253e48",
+    "size": 5047633,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "dbi",
+    "repo": "rashevskyv/DBIPatcher",
+    "tag": "921",
+    "asset": "DBI.nro",
+    "sha256": "816db30d9ccc88e3a1cdc6e294ae71ba92b101628437ecddc94d9168fb1aa319",
+    "size": 16637485,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "dbi_en",
+    "repo": "rashevskyv/DBIPatcher",
+    "tag": "921",
+    "asset": "translation_en.bin",
+    "sha256": "fc449d83a027a9b496320d5420c8b459daa4f47508412256c0df9a90047adb93",
+    "size": 811612,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "dbi_zhcn",
+    "repo": "rashevskyv/DBIPatcher",
+    "tag": "921",
+    "asset": "translation_zhcn.bin",
+    "sha256": "c16c2096c0bc5561992387a9c40aa96d7a15a7adc4db2b90d95974905ac26c2b",
+    "size": 794176,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "deepsea",
+    "repo": "exploitz86/Ascent-Toolbox",
+    "tag": "1.1.0",
+    "asset": "Ascent-Toolbox.nro",
+    "sha256": "735c2e0a42d0895e4c93165da1889d7fef2cde46c2213310b21a3c90067b8ecb",
+    "size": 2744785,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "edizon_nro",
+    "repo": "tomvita/EdiZon-SE",
+    "tag": "3.8.37a",
+    "asset": "edizon.zip",
+    "sha256": "6558c51561f685c53c7673a618465d1aa17df33b77eeabf819ab8d2cf10cbced",
+    "size": 10880820,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "goldleaf",
+    "repo": "XorTroll/Goldleaf",
+    "tag": "1.2.1",
+    "asset": "Goldleaf.nro",
+    "sha256": "4f05301db5d090d79bf04503af7e1eca587a60709c626e7e67f9e57b2fcc0017",
+    "size": 11875762,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "jksv",
+    "repo": "J-D-K/JKSV",
+    "tag": "12/02/2025",
+    "asset": "JKSV.nro",
+    "sha256": "a2b7f6372a4b81f3c3194aa6f96f2824bdea853b9a8ebf8c4a008d0d865a0cbf",
+    "size": 10130471,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "linkalho",
+    "repo": "impeeza/linkalho",
+    "tag": "v2.0.2",
+    "asset": "linkalho-v2.0.2.zip",
+    "sha256": "79463930b9973c1bf3bb23ef22a2dc5d0fa55daf940b1964dcae67839c749bfa",
+    "size": 3156396,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "nxactivity",
+    "repo": "zdm65477730/NX-Activity-Log",
+    "tag": "v1.6.0",
+    "asset": "NX-Activity-Log.nro",
+    "sha256": "c04a84744535fc483222593771a8781cef564314a1766e754821b0c69919eea4",
+    "size": 10923193,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "sphaira",
+    "repo": "NaGaa95/sphaira",
+    "tag": "1.0.9",
+    "asset": "sphaira.zip",
+    "sha256": "65455e72389d549e35310fc1f804fb4db9d508f0ee841dc5111173b6505892ec",
+    "size": 2418227,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "switchtime",
+    "repo": "3096/switch-time",
+    "tag": "0.1.6",
+    "asset": "switch-time.nro",
+    "sha256": "e8f19340411af6d2b6808d0ce534b346599b785132490e9f09a5f7e6eeb0a742",
+    "size": 295149,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "tencent_switcher",
+    "repo": "CaiMiao/Tencent-switcher-GUI",
+    "tag": "0.1.1",
+    "asset": "tencent-switcher-gui.nro",
+    "sha256": "c3b8a02d3d523a9b07b75873d7f7a9988c55fca0768e2a91d3cc4ac737d1b5ce",
+    "size": 7529089,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "tinwoo",
+    "repo": "mrdude2478/Tinwoo-Release",
+    "tag": "1.0.28",
+    "asset": "Tinwoo-Installer.zip",
+    "sha256": "8678877a9018a5f8b3b2a3db68016b2f890325c974c49c1078a584abe747e576",
+    "size": 6811401,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "wiliwili",
+    "repo": "xfangfang/wiliwili",
+    "tag": "v1.6.0",
+    "asset": "wiliwili-NintendoSwitch.zip",
+    "sha256": "70e5165e3d2224641aed330c8a3a0094203d0e3551aca34e09b27b072827b087",
+    "size": 18815897,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "resolver",
+    "repo": "zdm65477730/CommonProblemResolver",
+    "tag": "0.3.4",
+    "asset": "CommonProblemResolver.bin",
+    "sha256": "43d110d7d8b31c5f29aff3c21df278669a1b72a68df6fec920899d05ef81ef48",
+    "size": 82053,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "lockpick",
+    "repo": "impeeza/Lockpick_RCMDecScots",
+    "tag": "v2.0.1",
+    "asset": "Lockpick_RCM-2.0.1_Hekate.zip",
+    "sha256": "4f31a9f5fe009536656805eaaefbe3c724050022123ced15451fbe74ad8013e3",
+    "size": 95790,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "tegraexplorer",
+    "repo": "sthetix/TegraExplorer-Ext",
+    "tag": "v4.2.2",
+    "asset": "TegraExplorer-Ext-4.2.2.zip",
+    "sha256": "6bb781d63108af1ef6118e3628b5e5f42121bea8dd78dabe7457fdcb5bdbc565",
+    "size": 108714,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "hwfly",
+    "repo": "hwfly-nx/hwfly-toolbox",
+    "tag": "1.1.1",
+    "asset": "hwfly_toolbox.bin",
+    "sha256": "991ece86a73c197e27fd9e4ecf29143990f89a72062c754671f3f3f18cdcc885",
+    "size": 78348,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "downgrade",
+    "repo": "sthetix/DowngradeFixer",
+    "tag": "1.0.1",
+    "asset": "DowngradeFixer-1.0.1.zip",
+    "sha256": "4f72f3fc8439cedad09bb71976ee652a5cbb96e491f84f42a54ea080ade8dec2",
+    "size": 88828,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "warmboot_extractor",
+    "repo": "sthetix/Warmboot-Extractor",
+    "tag": "1.1.0",
+    "asset": "Warmboot_Extractor-1.1.0.zip",
+    "sha256": "14823a1a826b258bf46846dde1c28c638c8799b1d876d28ffac65d8f29dfc4b4",
+    "size": 52578,
+    "integrated": 1,
+    "result": "success"
+  },
+  {
+    "id": "n_xplorer",
+    "repo": "Craftyawesome/N-Xplorer",
+    "tag": "0.7.1-crash-fix",
+    "asset": "N-Xplorer.nro",
+    "sha256": "6514c5215a6db067044fa16a5e0ff4cd77519b72c10097ed642836aa667941b0",
+    "size": 10018246,
+    "integrated": 1,
+    "result": "success"
+  }
+]
