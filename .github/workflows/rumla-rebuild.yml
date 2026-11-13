@@ -47,6 +47,20 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 scripts/build_rebuild.py
+      - name: Rebuild quality gate (do not publish silent source regressions)
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          r=json.load(open("dist/BUILD_REPORT.json",encoding="utf8"))
+          s=r["stats"]
+          print(f"Exact source-file matches: {s['byte_identical']}/{s['reference_files']}")
+          if r["failures"]:
+              sys.exit("Component download/extraction failures: inspect BUILD_REPORT.json")
+          if s["byte_identical"] < 90:
+              sys.exit("Source build regressed below 90 identical verified files")
+          print("Experimental parity gate passed; this is NOT a hardware compatibility test")
+          PY
       - name: Verify generated 7z and SHA256
         run: |
           set -euo pipefail
