@@ -1,0 +1,288 @@
+{
+  "schema": 1,
+  "profile": "rumla-1.12.2-baseline",
+  "goal": "independent rebuild from component author releases; never use original rumla 7z in build",
+  "original_release_for_reference": "https://github.com/rumla3434/Atmosphere-Stable/releases/tag/1.12.2",
+  "known_exclusions": [
+    "155 IPS patch files: source-specific verified build not yet available",
+    "7 warmboot_mariko/wb_*.bin: hardware firmware dependent, cannot assume safe redistribution",
+    "custom bootlogo and icon BMP files: upstream origin/licensing not mapped",
+    "SX boot.dat/sdloader.enc: source not mapped",
+    "hbmenu.nsp universal forwarder: trusted source not mapped",
+    "picofly toolbox: exact asset not mapped"
+  ],
+  "components": [
+    {
+      "id": "atmosphere",
+      "repo": "Atmosphere-NX/Atmosphere",
+      "tag": "1.12.2",
+      "asset": "atmosphere-1.12.2-master-4e3f37038+hbl-2.4.5+hbmenu-3.6.1.zip",
+      "kind": "overlay",
+      "required": true
+    },
+    {
+      "id": "fusee",
+      "repo": "Atmosphere-NX/Atmosphere",
+      "tag": "1.12.2",
+      "asset": "fusee.bin",
+      "kind": "file",
+      "dest": "bootloader/payloads/fusee.bin",
+      "required": true
+    },
+    {
+      "id": "hekate",
+      "repo": "CTCaer/hekate",
+      "tag": "v6.5.5",
+      "asset": "hekate_ctcaer_6.5.5_Nyx_1.9.5.zip",
+      "kind": "overlay",
+      "required": true
+    },
+    {
+      "id": "hekate_payload",
+      "repo": "CTCaer/hekate",
+      "tag": "v6.5.5",
+      "asset": "hekate_ctcaer_6.5.5.bin",
+      "kind": "file",
+      "dest": "payload.bin",
+      "required": true
+    },
+    {
+      "id": "nyx_zh",
+      "repo": "easyworld/hekate",
+      "tag": "v6.5.5",
+      "asset": "hekate_ctcaer_6.5.5_Nyx_1.9.5_sc.zip",
+      "kind": "overlay",
+      "required": false,
+      "save_english_nyx": true
+    },
+    {
+      "id": "tesla_loader",
+      "repo": "zdm65477730/nx-ovlloader",
+      "tag": "1.0.7",
+      "asset": "nx-ovlloader.zip",
+      "kind": "overlay"
+    },
+    {
+      "id": "ultrahand",
+      "repo": "zdm65477730/Ultrahand-Overlay",
+      "tag": "2.5.4",
+      "asset": "Ultrahand.zip",
+      "kind": "overlay"
+    },
+    {
+      "id": "ovl_sysmodules",
+      "repo": "zdm65477730/ovl-sysmodules",
+      "tag": "v1.3.2",
+      "asset": "ovl-sysmodules.zip",
+      "kind": "overlay"
+    },
+    {
+      "id": "edizon_overlay",
+      "repo": "zdm65477730/EdiZon-Overlay",
+      "tag": "v1.0.8",
+      "asset": "EdiZon.zip",
+      "kind": "overlay"
+    },
+    {
+      "id": "sysclk",
+      "repo": "zdm65477730/sys-clk",
+      "tag": "v1.0.2",
+      "asset": "sys-clk.zip",
+      "kind": "overlay"
+    },
+    {
+      "id": "statusmonitor",
+      "repo": "zdm65477730/Status-Monitor-Overlay",
+      "tag": "v1.4.1",
+      "asset": "StatusMonitor.zip",
+      "kind": "overlay"
+    },
+    {
+      "id": "awoo",
+      "repo": "Huntereb/Awoo-Installer",
+      "tag": "1.3.6",
+      "asset": "Awoo-Installer.zip",
+      "kind": "find",
+      "match": "Awoo-Installer.nro",
+      "dest": "switch/Awoo-Installer/Awoo-Installer.nro"
+    },
+    {
+      "id": "checkpoint",
+      "repo": "BernardoGiordano/Checkpoint",
+      "tag": "v5.3.0",
+      "asset": "Checkpoint.nro",
+      "kind": "file",
+      "dest": "switch/Checkpoint/Checkpoint.nro"
+    },
+    {
+      "id": "dbi",
+      "repo": "rashevskyv/DBIPatcher",
+      "tag": "921",
+      "asset": "DBI.nro",
+      "kind": "file",
+      "dest": "switch/DBI/DBI.nro"
+    },
+    {
+      "id": "dbi_en",
+      "repo": "rashevskyv/DBIPatcher",
+      "tag": "921",
+      "asset": "translation_en.bin",
+      "kind": "file",
+      "dest": "switch/DBI/translation.bin"
+    },
+    {
+      "id": "dbi_zhcn",
+      "repo": "rashevskyv/DBIPatcher",
+      "tag": "921",
+      "asset": "translation_zhcn.bin",
+      "kind": "file",
+      "dest": "switch/DBI/translation.bin.cn"
+    },
+    {
+      "id": "deepsea",
+      "repo": "exploitz86/Ascent-Toolbox",
+      "tag": "1.1.0",
+      "asset": "Ascent-Toolbox.nro",
+      "kind": "file",
+      "dest": "switch/DeepSea-Toolbox/DeepSeaToolbox.nro"
+    },
+    {
+      "id": "edizon_nro",
+      "repo": "tomvita/EdiZon-SE",
+      "tag": "3.8.37a",
+      "asset": "edizon.zip",
+      "kind": "find",
+      "match": "edizon.nro",
+      "dest": "switch/EdiZon/EdiZon.nro"
+    },
+    {
+      "id": "goldleaf",
+      "repo": "XorTroll/Goldleaf",
+      "tag": "1.2.1",
+      "asset": "Goldleaf.nro",
+      "kind": "file",
+      "dest": "switch/goldleaf/Goldleaf.nro"
+    },
+    {
+      "id": "jksv",
+      "repo": "J-D-K/JKSV",
+      "tag": "12/02/2025",
+      "asset": "JKSV.nro",
+      "kind": "file",
+      "dest": "switch/jksv/JKSV.nro"
+    },
+    {
+      "id": "linkalho",
+      "repo": "impeeza/linkalho",
+      "tag": "v2.0.2",
+      "asset": "linkalho-v2.0.2.zip",
+      "kind": "find",
+      "match": "linkalho.nro",
+      "dest": "switch/linkalho/linkalho.nro"
+    },
+    {
+      "id": "nxactivity",
+      "repo": "zdm65477730/NX-Activity-Log",
+      "tag": "v1.6.0",
+      "asset": "NX-Activity-Log.nro",
+      "kind": "file",
+      "dest": "switch/NX-Activity-Log/NX-Activity-Log.nro"
+    },
+    {
+      "id": "sphaira",
+      "repo": "NaGaa95/sphaira",
+      "tag": "1.0.9",
+      "asset": "sphaira.zip",
+      "kind": "find",
+      "match": "sphaira.nro",
+      "dest": "switch/sphaira/sphaira.nro"
+    },
+    {
+      "id": "switchtime",
+      "repo": "3096/switch-time",
+      "tag": "0.1.6",
+      "asset": "switch-time.nro",
+      "kind": "file",
+      "dest": "switch/switch-time.nro"
+    },
+    {
+      "id": "tencent_switcher",
+      "repo": "CaiMiao/Tencent-switcher-GUI",
+      "tag": "0.1.1",
+      "asset": "tencent-switcher-gui.nro",
+      "kind": "file",
+      "dest": "switch/tencent-switcher-gui.nro",
+      "note": "upstream published 0.1.1; rumla notes claim 0.1.2"
+    },
+    {
+      "id": "tinwoo",
+      "repo": "mrdude2478/Tinwoo-Release",
+      "tag": "1.0.28",
+      "asset": "Tinwoo-Installer.zip",
+      "kind": "find",
+      "match": "Tinwoo.nro",
+      "dest": "switch/tinwoo/tinwoo.nro"
+    },
+    {
+      "id": "wiliwili",
+      "repo": "xfangfang/wiliwili",
+      "tag": "v1.6.0",
+      "asset": "wiliwili-NintendoSwitch.zip",
+      "kind": "find",
+      "match": "wiliwili.nro",
+      "dest": "switch/wiliwili/wiliwili.nro"
+    },
+    {
+      "id": "resolver",
+      "repo": "zdm65477730/CommonProblemResolver",
+      "tag": "0.3.4",
+      "asset": "CommonProblemResolver.bin",
+      "kind": "file",
+      "dest": "bootloader/payloads/CommonProblemResolver.bin"
+    },
+    {
+      "id": "lockpick",
+      "repo": "impeeza/Lockpick_RCMDecScots",
+      "tag": "v2.0.1",
+      "asset": "Lockpick_RCM-2.0.1_Hekate.zip",
+      "kind": "find",
+      "match": "Lockpick_RCM.bin",
+      "dest": "bootloader/payloads/Lockpick_RCM.bin"
+    },
+    {
+      "id": "tegraexplorer",
+      "repo": "sthetix/TegraExplorer-Ext",
+      "tag": "v4.2.2",
+      "asset": "TegraExplorer-Ext-4.2.2.zip",
+      "kind": "find",
+      "match": "TegraExplorer*.bin",
+      "dest": "bootloader/payloads/TegraExplorer.bin"
+    },
+    {
+      "id": "hwfly",
+      "repo": "hwfly-nx/hwfly-toolbox",
+      "tag": "1.1.1",
+      "asset": "hwfly_toolbox.bin",
+      "kind": "file",
+      "dest": "bootloader/payloads/hwfly_toolbox.bin"
+    },
+    {
+      "id": "downgrade",
+      "repo": "sthetix/DowngradeFixer",
+      "tag": "1.0.1",
+      "asset": "DowngradeFixer-1.0.1.zip",
+      "kind": "find",
+      "match": "DowngradeFixer.bin",
+      "dest": "bootloader/payloads/DowngradeFixer.bin"
+    },
+    {
+      "id": "warmboot_extractor",
+      "repo": "sthetix/Warmboot-Extractor",
+      "tag": "1.1.0",
+      "asset": "Warmboot_Extractor-1.1.0.zip",
+      "kind": "find",
+      "match": "Warmboot_Extractor.bin",
+      "dest": "bootloader/payloads/Warmboot_Extractor.bin"
+    }
+  ]
+}
