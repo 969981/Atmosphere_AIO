@@ -1,0 +1,131 @@
+name: Rumla Stable - verify and mirror manual release
+
+on:
+  schedule:
+    # Four checks per day; catches asset replacements under an unchanged Git tag.
+    - cron: "29 0,6,12,18 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        type: boolean
+        description: "Re-verify and overwrite the same SHA256-scoped mirror release"
+        default: false
+        required: false
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/rumla-stable.yml
+      - scripts/rumla_release.py
+
+concurrency:
+  group: rumla-stable-release-mirror
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check rumla Release asset digest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      should_build: ${{ steps.detect.outputs.should_build }}
+      release_tag: ${{ steps.detect.outputs.release_tag }}
+      asset_name: ${{ steps.detect.outputs.asset_name }}
+      sha256: ${{ steps.detect.outputs.sha256 }}
+      source_tag: ${{ steps.detect.outputs.source_tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Detect new or replaced upstream 7z asset
+        id: detect
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FORCE_BUILD: ${{ inputs.force || 'false' }}
+        run: python3 scripts/rumla_release.py check
+
+  verify:
+    name: Verify archive and generate component layout audit
+    needs: check
+    if: needs.check.outputs.should_build == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Install 7z archive verifier
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq p7zip-full
+      - name: Download exact original asset, check SHA256, inspect paths
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_SHA256: ${{ needs.check.outputs.sha256 }}
+        run: python3 scripts/rumla_release.py build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rumla-verified-${{ needs.check.outputs.release_tag }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14
+
+  publish:
+    name: Publish unchanged archive and pin upstream provenance
+    needs: [check, verify]
+    if: needs.verify.result == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: rumla-verified-${{ needs.check.outputs.release_tag }}
+          path: release/
+      - name: Publish original upstream 7z and audit
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.check.outputs.release_tag }}
+          target_commitish: upstream/rumla-stable
+          name: Rumla Stable ${{ needs.check.outputs.source_tag }} - verified mirror
+          body_path: release/RELEASE_NOTES.md
+          draft: false
+          prerelease: false
+          make_latest: false
+          overwrite_files: true
+          fail_on_unmatched_files: true
+          files: |
+            release/*.7z
+            release/ARCHIVE_LAYOUT.md
+            release/ARCHIVE_PATHS.txt
+            release/SHA256SUMS
+            release/SOURCE_RELEASE.json
+
+      - name: Checkout dedicated rumla tracking branch
+        uses: actions/checkout@v4
+        with:
+          ref: upstream/rumla-stable
+          path: tracking
+          persist-credentials: true
+          fetch-depth: 0
+      - name: Pin author asset metadata and archive report (no binary in Git)
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp release/SOURCE_RELEASE.json tracking/upstream-release.json
+          cp release/ARCHIVE_LAYOUT.md tracking/ARCHIVE_LAYOUT.md
+          printf '%s\n' '${{ needs.check.outputs.source_tag }}' > tracking/upstream-release.txt
+          printf '%s\n' '${{ needs.check.outputs.sha256 }}' > tracking/upstream-asset-sha256.txt
+          cd tracking
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add upstream-release.json ARCHIVE_LAYOUT.md upstream-release.txt upstream-asset-sha256.txt
+          if ! git diff --cached --quiet; then
+            git commit -m 'sync(rumla): ${{ needs.check.outputs.source_tag }} / ${{ needs.check.outputs.sha256 }}'
+            git push origin HEAD:upstream/rumla-stable
+          fi
