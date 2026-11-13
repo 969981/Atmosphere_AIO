@@ -6,20 +6,22 @@ The original .7z is never accessed by this builder.
 | Comparison | Count |
 | --- | ---: |
 | reference_files | 277 |
-| rebuilt_files | 101 |
-| byte_identical | 94 |
+| rebuilt_files | 103 |
+| byte_identical | 96 |
 | different_hash | 7 |
-| missing_files | 176 |
+| missing_files | 174 |
 | extra_files | 0 |
-| exact_percent | 33.94 |
+| exact_percent | 34.66 |
 
-## Identical (94)
+## Identical (96)
 
 - atmosphere/config/override_config.ini
 - atmosphere/config/stratosphere.ini
 - atmosphere/config/system_settings.ini
 - atmosphere/config_templates/boot2.flag
+- atmosphere/config_templates/emummc-ER00/ER00/raw_based
 - atmosphere/config_templates/emummc-ER00/emummc.ini
+- atmosphere/config_templates/emummc-SD00/SD00/file_based
 - atmosphere/config_templates/emummc-SD00/emummc.ini
 - atmosphere/contents/00FF0000636C6BFF/exefs.nsp
 - atmosphere/contents/00FF0000636C6BFF/toolbox.json
@@ -120,10 +122,8 @@ The original .7z is never accessed by this builder.
 - switch/reboot_to_payload.nro
 - switch/tencent-switcher-gui.nro
 
-## Missing (176)
+## Missing (174)
 
-- atmosphere/config_templates/emummc-ER00/ER00/raw_based
-- atmosphere/config_templates/emummc-SD00/SD00/file_based
 - atmosphere/exefs_patches/es_patches/02DCD930D0A7462451E9973AB2022D697C77614B.ips
 - atmosphere/exefs_patches/es_patches/03E4EB5556B98B327D1353E8AA2C7ADF2C544470.ips
 - atmosphere/exefs_patches/es_patches/1114E9102F1EBCD1B0EAF19C927362CFCB8B5D2C.ips
