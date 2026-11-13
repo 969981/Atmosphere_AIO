@@ -106,3 +106,26 @@ jobs:
             release/SHA256SUMS
             release/UPSTREAM_VERSION_CHECK.json
             release/UPSTREAM_VERSION_CHECK.md
+      - name: Checkout analysis branch for durable comparison reports
+        uses: actions/checkout@v4
+        with:
+          ref: upstream/rumla-rebuild
+          path: tracking
+          fetch-depth: 0
+      - name: Save last verified source-vs-reference report
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p tracking/reports
+          cp release/PARITY.md tracking/reports/LATEST_PARITY.md
+          cp release/BUILD_REPORT.json tracking/reports/LATEST_BUILD_REPORT.json
+          cp release/SOURCE_LOCK.json tracking/reports/LATEST_SOURCE_LOCK.json
+          cp release/UPSTREAM_VERSION_CHECK.md tracking/reports/LATEST_UPSTREAM_CHECK.md
+          cd tracking
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/
+          if ! git diff --cached --quiet; then
+            git commit -m 'report(rumla-rebuild): independent assembly parity and source versions'
+            git push origin HEAD:upstream/rumla-rebuild
+          fi
