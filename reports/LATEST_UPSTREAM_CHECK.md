@@ -31,7 +31,7 @@
 | hwfly-nx/hwfly-toolbox | 1.1.1 | 1.1.1 | same |
 | sthetix/DowngradeFixer | 1.0.1 | 1.0.1 | same |
 | sthetix/Warmboot-Extractor | 1.1.0 | 1.1.0 | same |
-| Craftyawesome/N-Xplorer | 0.7.1-crash-fix | ? | ⚠️ source lookup failed |
+| Craftyawesome/N-Xplorer | 0.7.1-crash-fix | 0.7.1-crash-fix | same |
 
-Changes detected: 0; failed lookups: 1.
+Changes detected: 0; failed lookups: 0.
 New versions are NOT silently substituted into a firmware bundle without a new locked profile and verification.

@@ -2,11 +2,11 @@
   "stats": {
     "reference_files": 277,
     "rebuilt_files": 103,
-    "byte_identical": 96,
-    "different_hash": 7,
+    "byte_identical": 95,
+    "different_hash": 8,
     "missing_files": 174,
     "extra_files": 0,
-    "exact_percent": 34.66
+    "exact_percent": 34.3
   },
   "exact": [
     "atmosphere/config/override_config.ini",
@@ -35,7 +35,6 @@
     "bootloader/payloads/Lockpick_RCM.bin",
     "bootloader/payloads/TegraExplorer.bin",
     "bootloader/payloads/Warmboot_Extractor.bin",
-    "bootloader/payloads/fusee.bin",
     "bootloader/payloads/hwfly_toolbox.bin",
     "bootloader/sys/emummc.kipm",
     "bootloader/sys/l4t/bpmpfw.bin",
@@ -108,6 +107,7 @@
   ],
   "changed": [
     "bootloader/hekate_ipl.ini",
+    "bootloader/payloads/fusee.bin",
     "switch/.overlays/ovlmenu.ovl",
     "switch/DBI/DBI.nro",
     "switch/DeepSea-Toolbox/DeepSeaToolbox.nro",
@@ -357,7 +357,7 @@
       "repo": "Atmosphere-NX/Atmosphere",
       "tag": "1.12.2",
       "asset": "fusee.bin",
-      "sha256": "1ef8e019fcd6e6026f88075e8dc391f461614d915f4322af776c9903d42ff5ca",
+      "sha256": "e8b8d926d5b9d68719a60c2ed40de7c0d9564417b366bdabe9975c2af9956d65",
       "size": 112160,
       "integrated": 1,
       "result": "success"

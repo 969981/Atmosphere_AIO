@@ -7,13 +7,13 @@ The original .7z is never accessed by this builder.
 | --- | ---: |
 | reference_files | 277 |
 | rebuilt_files | 103 |
-| byte_identical | 96 |
-| different_hash | 7 |
+| byte_identical | 95 |
+| different_hash | 8 |
 | missing_files | 174 |
 | extra_files | 0 |
-| exact_percent | 34.66 |
+| exact_percent | 34.3 |
 
-## Identical (96)
+## Identical (95)
 
 - atmosphere/config/override_config.ini
 - atmosphere/config/stratosphere.ini
@@ -41,7 +41,6 @@ The original .7z is never accessed by this builder.
 - bootloader/payloads/Lockpick_RCM.bin
 - bootloader/payloads/TegraExplorer.bin
 - bootloader/payloads/Warmboot_Extractor.bin
-- bootloader/payloads/fusee.bin
 - bootloader/payloads/hwfly_toolbox.bin
 - bootloader/sys/emummc.kipm
 - bootloader/sys/l4t/bpmpfw.bin
@@ -112,9 +111,10 @@ The original .7z is never accessed by this builder.
 - switch/tinwoo/tinwoo.nro
 - switch/wiliwili/wiliwili.nro
 
-## Different SHA256 (7)
+## Different SHA256 (8)
 
 - bootloader/hekate_ipl.ini
+- bootloader/payloads/fusee.bin
 - switch/.overlays/ovlmenu.ovl
 - switch/DBI/DBI.nro
 - switch/DeepSea-Toolbox/DeepSeaToolbox.nro
