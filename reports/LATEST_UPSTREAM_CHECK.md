@@ -20,7 +20,7 @@
 | J-D-K/JKSV | 12/02/2025 | 12/02/2025 | same |
 | impeeza/linkalho | v2.0.2 | v2.0.2 | same |
 | zdm65477730/NX-Activity-Log | v1.6.0 | v1.6.0 | same |
-| NaGaa95/sphaira | 1.0.9 | 1.1.0 | 🆕 update |
+| NaGaa95/sphaira | 1.0.9 | 1.1.1 | 🆕 update |
 | 3096/switch-time | 0.1.6 | 0.1.6 | same |
 | CaiMiao/Tencent-switcher-GUI | 0.1.1 | 0.1.1 | same |
 | mrdude2478/Tinwoo-Release | 1.0.28 | 1.0.28 | same |
