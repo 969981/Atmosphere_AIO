@@ -5,24 +5,54 @@ on:
     branches:
       - main
     paths:
-      - 'README.md'
       - 'switchScript.sh'
+      - 'templates/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - '.github/workflows/switchScript.yaml'
+  workflow_dispatch:
   schedule:
-    - cron: 0 8 * * *
+    # 16:17 Asia/Shanghai; avoid the busy start of the hour.
+    - cron: '17 8 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: switchscript-release
+  cancel-in-progress: false
 
 env:
   SCRIPT_SH: switchScript.sh
   TZ: Asia/Shanghai
 
 jobs:
+  validate:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Validate script on system Bash
+        run: |
+          /bin/bash --version
+          /bin/bash -n switchScript.sh
+          python3 -m unittest discover -s tests -v
+
   build:
+    needs: validate
     runs-on: ubuntu-latest
+    timeout-minutes: 60
 
     steps:
     - name: Checkout
       uses: actions/checkout@v6
       with:
-        ref: main
+        ref: ${{ github.sha }}
 
     - name: Initialization environment
       env:
@@ -31,18 +61,21 @@ jobs:
         sudo -E apt install -y jq
 
     - name: "Build & Release"
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
       run: |
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "tag_name=$(date +%Y%m%d)" >> $GITHUB_ENV
         chmod +x $SCRIPT_SH
-        ./$SCRIPT_SH
+        ./$SCRIPT_SH --strict
         zip -rq SwitchSD.zip SwitchSD
-
-    - name: Read description.txt
-      id: description
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./description.txt
+        zip -T SwitchSD.zip
+        sha256sum SwitchSD.zip > SwitchSD.zip.sha256
+        sha256sum -c SwitchSD.zip.sha256
+        {
+          printf 'Source commit: %s\n\n' "$GITHUB_SHA"
+          cat description.txt
+        } > release-notes.txt
 
     - name: Create release
       uses: ncipollo/release-action@v1
@@ -50,23 +83,43 @@ jobs:
         name: ${{ env.DATE }} ❤️ | 大气层个人整合包
         allowUpdates: true
         tag: ${{ env.tag_name }}
-        commit: main
+        commit: ${{ github.sha }}
         token: ${{ secrets.actions_release }}
-        body: "${{ steps.description.outputs.content }}"
-        artifacts: "SwitchSD.zip"
+        bodyFile: release-notes.txt
+        artifacts: "SwitchSD.zip,SwitchSD.zip.sha256,description.txt"
 
     - name: Remove old Releases
-      uses: jay2610/delete-older-releases@1.0.0
-      with:
-        keep_latest: 5
-        delete_tags: true
       env:
-        GITHUB_TOKEN: ${{ secrets.actions_release }}
+        GH_TOKEN: ${{ secrets.actions_release }}
+      run: |
+        python3 scripts/prune_releases.py \
+          --repo "$GITHUB_REPOSITORY" \
+          --keep 5 \
+          --protect-tag "$tag_name" \
+          --execute
 
-    - name: Delete workflow runs for current repo
-      uses: Mattraks/delete-workflow-runs@v2.1.0
-      with:
-        token: ${{ secrets.actions_release }}
-        repository: ${{ github.repository }}
-        retain_days: 7
-        keep_minimum_runs: 6
+  cleanup:
+    needs: [validate, build]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.sha }}
+      - name: Prune workflow history
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BUILD_RESULT: ${{ needs.build.result }}
+        run: |
+          python3 scripts/prune_workflow_runs.py \
+            --repo "$GITHUB_REPOSITORY" \
+            --workflow switchScript.yaml \
+            --keep 5 \
+            --current-run-id "$GITHUB_RUN_ID" \
+            --current-result "$BUILD_RESULT" \
+            --execute
