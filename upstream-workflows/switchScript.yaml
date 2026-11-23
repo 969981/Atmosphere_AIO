@@ -67,15 +67,35 @@ jobs:
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "tag_name=$(date +%Y%m%d)" >> $GITHUB_ENV
         chmod +x $SCRIPT_SH
-        ./$SCRIPT_SH --strict
-        zip -rq SwitchSD.zip SwitchSD
-        zip -T SwitchSD.zip
-        sha256sum SwitchSD.zip > SwitchSD.zip.sha256
-        sha256sum -c SwitchSD.zip.sha256
+        ./$SCRIPT_SH --strict --network-stack ldn_mitm
+        zip -rq SwitchSD-ldn_mitm.zip SwitchSD
+        cp description.txt description-ldn_mitm.txt
+        rm -rf SwitchSD description.txt
+        ./$SCRIPT_SH --strict --network-stack roomcircuit
+        zip -rq SwitchSD-roomcircuit.zip SwitchSD
+        cp description.txt description-roomcircuit.txt
+        zip -T SwitchSD-ldn_mitm.zip
+        zip -T SwitchSD-roomcircuit.zip
+        sha256sum SwitchSD-ldn_mitm.zip SwitchSD-roomcircuit.zip > SwitchSD.sha256
+        sha256sum -c SwitchSD.sha256
         {
           printf 'Source commit: %s\n\n' "$GITHUB_SHA"
-          cat description.txt
+          printf 'Packages\n'
+          printf -- '- SwitchSD-ldn_mitm.zip: default ldn_mitm network stack\n'
+          printf -- '- SwitchSD-roomcircuit.zip: RoomCircuit replacement\n'
+          printf '\nBoth packages are mutually exclusive. Install only one.\n'
+          printf 'Verify downloads with SwitchSD.sha256.\n'
+          printf 'Component versions are listed in description-ldn_mitm.txt and description-roomcircuit.txt.\n'
+          printf '\nSee the README for installation and network stack selection.\n'
         } > release-notes.txt
+
+    - name: Remove obsolete release assets
+      env:
+        GH_TOKEN: ${{ secrets.actions_release }}
+      run: |
+        for asset in SwitchSD.zip SwitchSD.zip.sha256 description.txt; do
+          gh release delete-asset "$tag_name" "$asset" --repo "$GITHUB_REPOSITORY" --yes 2>/dev/null || true
+        done
 
     - name: Create release
       uses: ncipollo/release-action@v1
@@ -86,7 +106,7 @@ jobs:
         commit: ${{ github.sha }}
         token: ${{ secrets.actions_release }}
         bodyFile: release-notes.txt
-        artifacts: "SwitchSD.zip,SwitchSD.zip.sha256,description.txt"
+        artifacts: "SwitchSD-ldn_mitm.zip,SwitchSD-roomcircuit.zip,SwitchSD.sha256,description-ldn_mitm.txt,description-roomcircuit.txt"
 
     - name: Remove old Releases
       env:
